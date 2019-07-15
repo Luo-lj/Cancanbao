@@ -1,13 +1,28 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/splb/splb",
+    "pages/list/list"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/home.png"
+      },
+      {
+        "pagePath": "pages/splb/splb",
+        "text": "日志",
+        "iconPath": "/images/home.png"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }

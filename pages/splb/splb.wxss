@@ -1,0 +1,6 @@
+/* pages/splb/splb.wxss */
+view{
+  height: 120px;
+  width: 120px;
+  background-color: #000;
+}

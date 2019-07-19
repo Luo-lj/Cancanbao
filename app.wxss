@@ -1,4 +1,7 @@
 /**app.wxss**/
+@import './styles/weui.wxss';
+@import './styles/skyvow.wxss';
+
 .container {
   background-color: #f2f2f2;
   min-height: 100%;

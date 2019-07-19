@@ -20,7 +20,6 @@ function request(url, params, method = 'POST', header = {
       dataType: 'json',
       header,
       success(res) {
-        console.log("返回参数>>>", res);
         if (res.data.code == '0') {
           resolve(res.data.data);
         } else {

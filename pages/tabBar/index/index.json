@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": " ",
+  "usingComponents": {
+    "wux-tabs": "../../../components/tabs/index",
+    "wux-tab": "../../../components/tab/index"
+  }
+}

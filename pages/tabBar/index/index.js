@@ -1,5 +1,6 @@
 // pages/splb/splb.js
-const apiData = require('../../utils/apiData.js')
+const apiData = require('../../../utils/apiData.js')
+const common = require('../../../utils/common.js')
 Page({
 
   /**
@@ -15,19 +16,38 @@ Page({
     }, {
       imgSrc: '../../images/banner1.jpg',
       id: '03'
-    }]
+    }],
+    tabs: [
+      {
+        key: 'tab1',
+        title: 'Tab 1',
+        content: 'Content of tab 1',
+      },
+      {
+        key: 'tab2',
+        title: 'Tab 2',
+        content: 'Content of tab 2',
+      },
+      {
+        key: 'tab3',
+        title: 'Tab 3',
+        content: 'Content of tab 3',
+      },
+    ],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    // console.log(apiData.categoryAll(), "<<<<<<<<<<")
     apiData.goods().then(res => {
       console.log(res, "获取商品列表")
       this.setData({
         list: res,
       })
+    })
+    apiData.categoryAll().then(res => {
+      console.log(res, "<<<<<<<<<<<<<<<")
     })
   },
 
@@ -36,6 +56,29 @@ Page({
     wx.navigateTo({
       url: '../list/list?id=' + e.currentTarget.id,
     })
+  },
+
+  onTabsChange(e) {
+    console.log('onTabsChange', e)
+    const { key } = e.detail
+    const index = this.data.tabs.map((n) => n.key).indexOf(key)
+
+    this.setData({
+      key,
+      index,
+    })
+  },
+  onSwiperChange(e) {
+    console.log('onSwiperChange', e)
+    const { current: index, source } = e.detail
+    const { key } = this.data.tabs[index]
+
+    if (!!source) {
+      this.setData({
+        key,
+        index,
+      })
+    }
   },
 
   /**

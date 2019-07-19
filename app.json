@@ -1,6 +1,9 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/tabBar/index/index",
+    "pages/tabBar/fl/fl",
+    "pages/tabBar/gwc/gwc",
+    "pages/tabBar/wd/wd",
     "pages/splb/splb",
     "pages/list/list"
   ],
@@ -13,13 +16,23 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/index/index",
         "text": "首页",
+        "pagePath": "pages/tabBar/index/index",
         "iconPath": "/images/home.png"
       },
       {
-        "pagePath": "pages/splb/splb",
-        "text": "日志",
+        "text": "分类",
+        "pagePath": "pages/tabBar/fl/fl",
+        "iconPath": "/images/home.png"
+      },
+      {
+        "text": "购物车",
+        "pagePath": "pages/tabBar/gwc/gwc",
+        "iconPath": "/images/home.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/tabBar/wd/wd",
         "iconPath": "/images/home.png"
       }
     ]

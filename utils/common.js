@@ -24,13 +24,13 @@ function showLoading(message){
  * @param {String} confirmText 确认按钮名称；默认值：知道了
  * @param {String} cancelText 取消按钮名称；为空时不显示取消按钮
  */
-function showModal(content, confirmText, cancelText){
+function showModal(content, confirmText = '知道了', cancelText = '取消'){
   return new Promise(resolve => {
     wx.showModal({
       title: '温馨提示',
       content,
-      confirmText: confirmText || '知道了',
-      cancelText: cancelText || 'cancelText',
+      confirmText,
+      cancelText,
       showCancel: cancelText ? true : false,
       success: res => {
         resolve(res.confirm ? true : false);

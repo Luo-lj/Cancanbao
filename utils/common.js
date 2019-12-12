@@ -14,6 +14,7 @@ function showLoading(message){
     }
   }
   wx.showLoading({
+    mask: true,
     title: msg,
   })
 }
@@ -39,7 +40,37 @@ function showModal(content, confirmText = '知道了', cancelText = '取消'){
   });
 };
 
+/**
+ * 弹出错误提示信息
+ * @param {String} msessage 错误信息
+ * @param {boolean} isShowModal 是否弹出模式窗口显示提示信息
+ * @param {function} backFunc 传入true返回上一页，也可以传入提示后处理函数
+ */
+function showErrorMsg(msessage, isShowModal, backFunc) {
+  wx.hideLoading();
+  if (isShowModal) {
+    wx.hideToast();
+    showModal(msessage).then(() => {
+      if (backFunc) {
+        if (backFunc == true || backFunc === 1) {
+          wx.navigateBack();
+        } else {
+          backFunc();
+        }
+      }
+    });
+  } else {
+    wx.showToast({
+      title: msessage,
+      icon: icon || 'none',
+      duration: 2000
+    });
+  }
+}
+
+
 module.exports= {
   showLoading,
   showModal,
+  showErrorMsg
 }

@@ -1,2 +1,13 @@
 <!--pages/tabBar/wd/wd.wxml-->
-<text>pages/tabBar/wd/wd.wxml</text>
+<view class="container">
+  <view wx:if="{{userInfo}}" class="userinfo">
+    <image wx:if="{{userInfo.avatarUrl}}" class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{ userInfo.nickName }}</text>
+  </view>
+  <view wx:else class="userinfo" style="margin-bottom:50rpx;">
+    <view class="userinfo-warp">
+      <open-data type="userAvatarUrl" class="userinfo-avatar"></open-data>
+    </view>
+    <button class="weui-btn mini-btn" plain="true" size="mini" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">请登录</button>
+  </view>
+</view>

@@ -10,30 +10,36 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "安的伐装修",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "color": "#a7a5a5",
+    "selectedColor": "#292929",
     "list": [
       {
         "text": "首页",
         "pagePath": "pages/tabBar/index/index",
-        "iconPath": "/images/home.png"
+        "iconPath": "/images/tabBar/home.png",
+        "selectedIconPath": "/images/tabBar/home-open.png"
       },
       {
-        "text": "分类",
+        "text": "装修",
         "pagePath": "pages/tabBar/fl/fl",
-        "iconPath": "/images/home.png"
+        "iconPath": "/images/tabBar/fenlei.png",
+        "selectedIconPath": "/images/tabBar/fenlei-open.png"
       },
       {
-        "text": "购物车",
+        "text": "看图",
         "pagePath": "pages/tabBar/gwc/gwc",
-        "iconPath": "/images/home.png"
+        "iconPath": "/images/tabBar/look.png",
+        "selectedIconPath": "/images/tabBar/look-open.png"
       },
       {
         "text": "我的",
         "pagePath": "pages/tabBar/wd/wd",
-        "iconPath": "/images/home.png"
+        "iconPath": "/images/tabBar/my.png",
+        "selectedIconPath": "/images/tabBar/my-open.png"
       }
     ]
   },

@@ -8,32 +8,80 @@ Page({
    */
   data: {
     imgUrls: [{
-      imgSrc: '../../images/banner1.jpg',
+      imgSrc: '../../../images/banner1.jpg',
       id: '01'
     }, {
-      imgSrc: '../../images/banner1.jpg',
+      imgSrc: '../../../images/banner2.jpg',
       id: '02'
     }, {
-      imgSrc: '../../images/banner1.jpg',
+      imgSrc: '../../../images/banner3.jpg',
       id: '03'
+    }, {
+      imgSrc: '../../../images/banner4.jpg',
+      id: '04'
     }],
-    tabs: [
-      {
-        key: 'tab1',
-        title: 'Tab 1',
-        content: 'Content of tab 1',
-      },
-      {
-        key: 'tab2',
-        title: 'Tab 2',
-        content: 'Content of tab 2',
-      },
-      {
-        key: 'tab3',
-        title: 'Tab 3',
-        content: 'Content of tab 3',
-      },
-    ],
+    productData: [{
+      imgSrc: '/images/product/product-1.jpg',
+      name: '极简主义',
+      tips: '中式 | 3室 | 140平方',
+      shoucan: false,
+    }, {
+      imgSrc: '/images/product/product-2.jpg',
+      name: '极简主义',
+      tips: '中式 | 3室 | 140平方',
+      shoucan: false,
+    }, {
+      imgSrc: '/images/product/product-3.jpg',
+      name: '极简主义',
+      tips: '中式 | 3室 | 140平方',
+      shoucan: false,
+    }, {
+      imgSrc: '/images/product/product-4.jpg',
+      name: '极简主义',
+      tips: '中式 | 3室 | 140平方',
+      shoucan: false,
+    }, {
+      imgSrc: '/images/product/product-5.jpg',
+      name: '极简主义',
+      tips: '中式 | 3室 | 140平方',
+      shoucan: false,
+    }, {
+      imgSrc: '/images/product/product-6.jpg',
+      name: '极简主义',
+      tips: '中式 | 3室 | 140平方',
+      shoucan: false,
+    }, {
+      imgSrc: '/images/product/product-1.jpg',
+      name: '极简主义',
+      tips: '中式 | 3室 | 140平方',
+      shoucan: false,
+    }, {
+      imgSrc: '/images/product/product-2.jpg',
+      name: '极简主义',
+      tips: '中式 | 3室 | 140平方',
+      shoucan: false,
+    }, {
+      imgSrc: '/images/product/product-3.jpg',
+      name: '极简主义',
+      tips: '中式 | 3室 | 140平方',
+      shoucan: false,
+    }, {
+      imgSrc: '/images/product/product-4.jpg',
+      name: '极简主义',
+      tips: '中式 | 3室 | 140平方',
+      shoucan: false,
+    }, {
+      imgSrc: '/images/product/product-5.jpg',
+      name: '极简主义',
+      tips: '中式 | 3室 | 140平方',
+      shoucan: false,
+    }, {
+      imgSrc: '/images/product/product-6.jpg',
+      name: '极简主义',
+      tips: '中式 | 3室 | 140平方',
+      shoucan: false,
+    }]
+
   },
 
   /**
@@ -60,7 +108,9 @@ Page({
 
   onTabsChange(e) {
     console.log('onTabsChange', e)
-    const { key } = e.detail
+    const {
+      key
+    } = e.detail
     const index = this.data.tabs.map((n) => n.key).indexOf(key)
 
     this.setData({
@@ -70,8 +120,13 @@ Page({
   },
   onSwiperChange(e) {
     console.log('onSwiperChange', e)
-    const { current: index, source } = e.detail
-    const { key } = this.data.tabs[index]
+    const {
+      current: index,
+      source
+    } = e.detail
+    const {
+      key
+    } = this.data.tabs[index]
 
     if (!!source) {
       this.setData({

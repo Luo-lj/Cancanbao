@@ -1,23 +1,58 @@
 <!--index.wxml-->
-<!-- <view class="container">
+<view class="container">
   <view class="swiper-warp">
     <swiper indicator-dots indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" autoplay>
-      <swiper-item wx:for="{{imgUrls}}" >
-        <image src="{{item.imgSrc}}" id="{{item.id}}" bindtap="swiperItem" wx:key="" class="slide-image"/>
+      <swiper-item wx:for="{{imgUrls}}" wx:key="{{item.id}}">
+        <image src="{{item.imgSrc}}" id="{{item.id}}" bindtap="swiperItem" wx:key="" class="slide-image" />
       </swiper-item>
     </swiper>
   </view>
-</view> -->
 
-<wux-tabs wux-class="bordered" controlled current="{{ key }}" bindchange="onTabsChange">
-  <block wx:for="{{ tabs }}" wx:key="">
-    <wux-tab key="{{ item.key }}" title="{{ item.title }}"></wux-tab>
-  </block>
-</wux-tabs>
-<swiper current="{{ index }}" bindchange="onSwiperChange">
-  <block wx:for="{{ tabs }}" wx:key="">
-    <swiper-item>
-      <view class="content">{{ item.content }}</view>
-    </swiper-item>
-  </block>
-</swiper>
+  <view class="most-box">
+    <view class="most-content most-l">
+      <view class="most-warp">
+        <view class="most-text">最受欢迎</view>
+        <view class="most-text">人气设计师</view>
+        <view class="most-top">TOP 10</view>
+      </view>
+      <image class="most-img" src="/images/shejishi/huanyin-1.jpg"></image>
+    </view>
+    <view class="most-content most-r">
+      <view class="most-active">
+        <view class="most-warp-r">
+          <view class="most-text">最受欢迎</view>
+          <view class="most-text">人气设计师</view>
+          <view class="most-top">TOP 10</view>
+        </view>
+        <image class="most-img" src="/images/shejishi/huanyin-2.jpg"></image>
+      </view>
+      <view class="most-talent">
+        <view class="most-warp-r">
+          <view class="most-text">最受欢迎</view>
+          <view class="most-text">人气设计师</view>
+          <view class="most-top">TOP 10</view>
+        </view>
+        <image class="most-img" src="/images/shejishi/huanyin-3.jpg"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="home-warp">
+    <view class="home-head">
+      <view class="home-title">好家</view>
+      <view class="home-tips">猜你喜欢的风格</view>
+    </view>
+    <view class="home-content">
+      <view class="product-item" wx:for="{{productData}}" wx:key="index">
+        <view class="img-warp">
+          <image src="{{item.imgSrc}}"></image>
+        </view>
+        <view class="home-item">
+          <view class="item-title">{{item.name}}</view>
+          <view class="home-tips">收藏</view>
+        </view>
+        <view class="home-tips item-tips">{{item.tips}}</view>
+      </view>
+    </view>
+  </view>
+</view>

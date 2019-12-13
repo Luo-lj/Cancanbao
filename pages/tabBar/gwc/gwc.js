@@ -1,4 +1,6 @@
 // pages/tabBar/gwc/gwc.js
+const apiData = require('../../../utils/apiData.js')
+const common = require('../../../utils/common.js')
 Page({
 
   /**
@@ -13,6 +15,12 @@ Page({
    */
   onLoad: function (options) {
 
+  },
+
+  btn(){
+    wx.navigateTo({
+      url: '../../splb/splb',
+    })
   },
 
   /**

@@ -2,3 +2,4 @@
 <!-- <view wx:for="{{list}}" wx:key="">
   <image src="{{item.pic}}"/>
 </view> -->
+<button bindtap="btn">btn</button>

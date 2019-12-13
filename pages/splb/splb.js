@@ -13,12 +13,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log(apiData.categoryAll(), "<<<<<<<<<<")
+  },
+
+  btn(){
     apiData.goods().then(res => {
       console.log(res, "获取商品列表")
-      this.setData({
-        list: res,
-      })
+      
     })
   },
 

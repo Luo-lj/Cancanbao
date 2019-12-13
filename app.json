@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/tabBar/wd/wd",
+    "pages/tabBar/gwc/gwc",
     "pages/tabBar/index/index",
     "pages/tabBar/fl/fl",
-    "pages/tabBar/gwc/gwc",
-    "pages/tabBar/wd/wd",
     "pages/splb/splb",
     "pages/list/list"
   ],

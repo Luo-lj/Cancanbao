@@ -2,23 +2,25 @@ const ljRequest = require('./request.js');
 
 /**
  * 用户注册
+ * @param {Object} obj {code} 微信登录接口返回的 code
+ * @param {boolean | 1 } errHandle: 值为true弹出提示信息；值为false则抛出异常；值为1弹出提示信息并返回上页;
  */
-function register(obj) {
-  return ljRequest.request('/user/wxapp/register/simple', obj);
+function register(obj, errHandle) {
+  return ljRequest.request('/user/wxapp/register/simple', obj, '', errHandle);
 }
 
 /**
  * 登录获取Token
  */
-function Login(obj) {
-  return ljRequest.request('/user/wxapp/login', obj);
+function Login(obj, errHandle) {
+  return ljRequest.request('/user/wxapp/login', obj, '', errHandle);
 }
 
 /**
  * 获取商品列表
  */
 function goods() {
-  return ljRequest.request('/shop/goods/list');
+  return ljRequest.request('/shop/goods/list1', '', '', 1);
 }
 
 /**
@@ -41,13 +43,11 @@ function getValue(key) {
 
 /**
  * 批量获取系统参数
- * @param {Array} keys: 参数
+ * @param {Array} keys: 参数  { keys:'servicePhoneNumber,aboutUsTitle, aboutUsContent'}
  * @return 
  */
 function getValues(keys) {
-  return ljRequest.request('/config/values', {
-    keys
-  }, 'GET')
+  return ljRequest.request('/config/values', keys, 'GET')
 }
 
 /**

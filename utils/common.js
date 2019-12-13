@@ -25,13 +25,13 @@ function showLoading(message){
  * @param {String} confirmText 确认按钮名称；默认值：知道了
  * @param {String} cancelText 取消按钮名称；为空时不显示取消按钮
  */
-function showModal(content, confirmText = '知道了', cancelText = '取消'){
+function showModal(content, confirmText = '知道了', cancelText){
   return new Promise(resolve => {
     wx.showModal({
       title: '温馨提示',
       content,
       confirmText,
-      cancelText,
+      cancelText: cancelText || '',
       showCancel: cancelText ? true : false,
       success: res => {
         resolve(res.confirm ? true : false);
@@ -46,7 +46,7 @@ function showModal(content, confirmText = '知道了', cancelText = '取消'){
  * @param {boolean} isShowModal 是否弹出模式窗口显示提示信息
  * @param {function} backFunc 传入true返回上一页，也可以传入提示后处理函数
  */
-function showErrorMsg(msessage, isShowModal, backFunc) {
+function showErrorMsg(msessage, isShowModal=true, backFunc) {
   wx.hideLoading();
   if (isShowModal) {
     wx.hideToast();
@@ -62,7 +62,7 @@ function showErrorMsg(msessage, isShowModal, backFunc) {
   } else {
     wx.showToast({
       title: msessage,
-      icon: icon || 'none',
+      icon: 'none',
       duration: 2000
     });
   }

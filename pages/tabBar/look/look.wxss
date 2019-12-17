@@ -1,0 +1,27 @@
+/* pages/tabBar/gwc/gwc.wxss */
+
+.waterfall {
+  column-count: 2;
+  column-gap: 0;
+  padding: 20rpx;
+}
+
+.item {
+  box-sizing: border-box;
+  break-inside: avoid;
+  padding: 20rpx;
+}
+
+.item-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  height: auto;
+  font-size: 20px;
+  color: #686868;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  background: #ccc
+}

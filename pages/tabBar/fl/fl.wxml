@@ -1,2 +1,27 @@
 <!--pages/tabBar/fl/fl.wxml-->
-<text>pages/tabBar/fl/fl.wxml</text>
+<view>
+  <l-cell label="插槽内容" desc="Hello World">
+    <view slot="prepend">
+      <view class="cube">
+      </view>
+    </view>
+  </l-cell>
+  <l-cell label="插槽内容" desc="Hello World">
+    <view slot="prepend">
+      <view class="cube">
+      </view>
+    </view>
+  </l-cell>
+  <l-cell label="插槽内容" desc="Hello World">
+    <view slot="prepend">
+      <view class="cube">
+      </view>
+    </view>
+  </l-cell>
+  <l-cell label="插槽内容" desc="Hello World">
+    <view slot="prepend">
+      <view class="cube">
+      </view>
+    </view>
+  </l-cell>
+</view>

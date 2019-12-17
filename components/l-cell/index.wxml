@@ -1,0 +1,40 @@
+<!--components/l-cell/index.wxml-->
+<view class="cell component-class" hover-class="{{ !disabled && (to || access) ? 'cell-active' : 'none' }}"
+  catch:tap="handleTap">
+  <view class="cell-wrap cell-class">
+    <view class="cell-content {{ disabled?'cell-disabled':'' }}">
+      <view class="cell-content-header">
+        <view class="cell-content-prepend prepend-class">
+          <slot name="prepend"></slot>
+        </view>
+        <view class="cell-content-icon" wx:if="{{iconType}}">
+          <l-icon type="{{iconType}}" size="{{iconSize}}" color="{{iconColor}}" />
+        </view>
+        <view class="cell-content-wrap">
+          <!-- 固定格式的 cell -->
+          <view class="cell-content-label {{history?'his':''}}">
+            {{ label }}
+          </view>
+          <view wx:if="{{ desc }}" class="cell-desc desc-class {{label ? '' : 'cell-desc-nolabel'}}">
+            {{ desc }}
+          </view>
+
+          <!-- 自由编写的 slot -->
+          <view>
+            <slot />
+            <slot name="content" />
+          </view>
+        </view>
+      </view>
+      <view class="cell-content-footer {{ access || to ? '' : 'cell-no-access' }}">
+        <view class="cell-content-append {{ access || to ? '' : 'cell-no-access' }}">
+          <slot name="append"></slot>
+        </view>
+      </view>
+    </view>
+
+    <!-- 主要内容 -->
+    <view wx:if="{{ access || to }}" class="cell-access"></view>
+    <slot name="footer" />
+  </view>
+</view>

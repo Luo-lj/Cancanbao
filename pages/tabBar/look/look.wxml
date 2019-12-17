@@ -1,0 +1,53 @@
+<!--pages/tabBar/gwc/gwc.wxml-->
+<view class="waterfall">
+  <view class="item">
+    <view class="item-content" style="height:176px;">
+     
+    </view>
+  </view>
+  <view class="item">
+    <view class="item-content" style="height:200px;">
+     
+    </view>
+  </view>
+  <view class="item">
+    <view class="item-content" style="height:100px;">
+     
+    </view>
+  </view>
+  <view class="item">
+    <view class="item-content" style="height:220px;">
+     
+    </view>
+  </view>
+  <view class="item">
+    <view class="item-content" style="height:120px;">
+     
+    </view>
+  </view>
+  <view class="item">
+    <view class="item-content" style="height:230px;">
+     
+    </view>
+  </view>
+  <view class="item">
+    <view class="item-content" style="height:150px;">
+     
+    </view>
+  </view>
+   <view class="item">
+    <view class="item-content" style="height:290px;">
+     
+    </view>
+  </view>
+  <view class="item">
+    <view class="item-content" style="height:230px;">
+     
+    </view>
+  </view>
+  <view class="item">
+    <view class="item-content" style="height:150px;">
+     
+    </view>
+  </view>
+</view>

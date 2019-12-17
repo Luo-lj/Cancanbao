@@ -17,10 +17,18 @@ function Login(obj, errHandle) {
 }
 
 /**
+ * 获取banner列表
+ */
+function getBanner(){
+  return ljRequest.request('/banner/list','','GET');
+}
+
+
+/**
  * 获取商品列表
  */
 function goods() {
-  return ljRequest.request('/shop/goods/list1', '', '', 1);
+  return ljRequest.request('/shop/goods/list', '', '', 1);
 }
 
 /**
@@ -70,6 +78,7 @@ function create(obj){
 module.exports = {
   register,
   Login,
+  getBanner,
   categoryAll,
   goods,
   getValue,

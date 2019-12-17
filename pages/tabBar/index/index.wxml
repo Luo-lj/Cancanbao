@@ -2,8 +2,8 @@
 <view class="container">
   <view class="swiper-warp">
     <swiper indicator-dots indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" autoplay>
-      <swiper-item wx:for="{{imgUrls}}" wx:key="{{item.id}}">
-        <image src="{{item.imgSrc}}" id="{{item.id}}" bindtap="swiperItem" wx:key="" class="slide-image" />
+      <swiper-item wx:for="{{bannerData}}" wx:key="{{item.businessId}}">
+        <image src="{{item.picUrl}}" id="{{item.businessId}}" bindtap="swiperItem" class="slide-image" />
       </swiper-item>
     </swiper>
   </view>

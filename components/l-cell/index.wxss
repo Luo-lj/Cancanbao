@@ -1,0 +1,133 @@
+/* components/l-cell/index.wxss */
+.cell-wrap {
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  padding-top: 36rpx;
+  padding-bottom: 36rpx;
+  position: relative;
+}
+
+.cell-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.cell-wrap::after {
+  height: 1px;
+  width: 100%;
+  transform: scaleY(0.5);
+  left: 0;
+  right: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  bottom: 0;
+}
+
+.cell-content-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+}
+
+.cell-content-wrap {
+  flex: 1;
+}
+
+.cell-content-prepend {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 48rpx; */
+}
+
+.cell-content-label {
+  font-size: 36rpx;
+  line-height: 48rpx;
+}
+
+.cell-content-icon {
+  margin-right: 20rpx;
+}
+
+.cell-desc {
+  font-size: 26rpx;
+  line-height: 36rpx;
+  color: #999;
+  margin-top: 6rpx;
+  padding-right: 40rpx;
+  word-break: break-all;
+}
+
+.cell-desc-nolabel {
+  margin-top: 0;
+}
+
+.cell-content-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  padding-right: 18rpx;
+}
+
+.cell-content-append {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-right: 30rpx;
+  height: 48rpx;
+}
+
+.cell-access {
+  color: inherit;
+}
+
+.cell-access::after {
+  content: " ";
+  display: inline-block;
+  box-sizing: border-box;
+  height: 18rpx;
+  width: 18rpx;
+  border-width: 4rpx 4rpx 0 0;
+  border-color: #C7C7CC;
+  border-style: solid;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  right: 6rpx;
+}
+
+.cell-no-access {
+  padding-right: 0;
+}
+
+.cell-disabled {
+  opacity: 0.3;
+}
+
+.cell-active {
+  background: #e9eaec;
+}
+
+.g-cell_footer {
+  margin-top: 30rpx;
+}
+
+.g-cell_footer_content {
+  color: #999999;
+  font-size: 28rpx;
+  line-height: 38rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

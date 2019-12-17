@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/tabBar/wd/wd",
-    "pages/tabBar/gwc/gwc",
     "pages/tabBar/index/index",
     "pages/tabBar/fl/fl",
+    "pages/tabBar/look/look",
+    "pages/tabBar/wd/wd",
     "pages/splb/splb",
     "pages/list/list"
   ],
@@ -31,7 +31,7 @@
       },
       {
         "text": "看图",
-        "pagePath": "pages/tabBar/gwc/gwc",
+        "pagePath": "pages/tabBar/look/look",
         "iconPath": "/images/tabBar/look.png",
         "selectedIconPath": "/images/tabBar/look-open.png"
       },

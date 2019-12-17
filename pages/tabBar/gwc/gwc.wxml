@@ -1,2 +1,0 @@
-<!--pages/tabBar/gwc/gwc.wxml-->
-<button bindtap="btn">测试接口</button>

@@ -1,1 +1,9 @@
 /* pages/tabBar/fl/fl.wxss */
+.cube {
+  width: 200rpx;
+  height: 200rpx;
+  background-color: rgba(0, 0, 0, .3);
+  border-radius: 8rpx;
+  margin-right: 40px;
+  position: relative;
+}

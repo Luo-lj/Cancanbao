@@ -1,5 +1,10 @@
 <!--pages/tabBar/fl/fl.wxml-->
 <view>
+
+</view>
+
+
+<view>
   <l-cell label="插槽内容" desc="Hello World">
     <view slot="prepend">
       <view class="cube">

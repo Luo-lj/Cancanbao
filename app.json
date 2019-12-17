@@ -5,12 +5,13 @@
     "pages/tabBar/look/look",
     "pages/tabBar/wd/wd",
     "pages/splb/splb",
-    "pages/list/list"
+    "pages/list/list",
+    "pages/location/location"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "安的伐装修",
+    "navigationBarTitleText": "",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -42,6 +43,11 @@
         "selectedIconPath": "/images/tabBar/my-open.png"
       }
     ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
   },
   "sitemapLocation": "sitemap.json"
 }

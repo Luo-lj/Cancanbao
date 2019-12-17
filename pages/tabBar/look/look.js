@@ -1,6 +1,6 @@
 // pages/tabBar/gwc/gwc.js
-const apiData = require('../../../utils/apiData.js')
-const common = require('../../../utils/common.js')
+// const apiData = require('../../../utils/apiData.js');
+// const common = require('../../../utils/common.js');
 Page({
 
   /**
@@ -17,10 +17,10 @@ Page({
 
   },
 
-  btn(){
+  btn() {
     wx.navigateTo({
       url: '../../splb/splb',
-    })
+    });
   },
 
   /**
@@ -71,4 +71,4 @@ Page({
   onShareAppMessage: function () {
 
   }
-})
+});

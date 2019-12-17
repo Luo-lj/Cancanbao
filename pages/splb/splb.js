@@ -1,5 +1,5 @@
 // pages/splb/splb.js
-const apiData = require('../../utils/apiData.js')
+const apiData = require('../../utils/apiData.js');
 Page({
 
   /**
@@ -15,11 +15,11 @@ Page({
   onLoad: function (options) {
   },
 
-  btn(){
+  btn() {
     apiData.goods().then(res => {
-      console.log(res, "获取商品列表")
-      
-    })
+      console.log(res, '获取商品列表');
+
+    });
   },
 
   /**
@@ -70,4 +70,4 @@ Page({
   onShareAppMessage: function () {
 
   }
-})
+});

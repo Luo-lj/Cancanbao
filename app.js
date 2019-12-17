@@ -1,9 +1,9 @@
-//app.js
+// app.js
 App({
   onLaunch: function () {
-   
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    dictData: null, // 字典数据
   }
-})
+});

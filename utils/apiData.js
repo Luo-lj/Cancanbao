@@ -1,5 +1,6 @@
 const ljRequest = require('./request.js');
-
+const config = require('./config.js');
+const app = getApp();
 /**
  * 用户注册
  * @param {Object} obj {code} 微信登录接口返回的 code
@@ -19,8 +20,8 @@ function Login(obj, errHandle) {
 /**
  * 获取banner列表
  */
-function getBanner(){
-  return ljRequest.request('/banner/list','','GET');
+function getBanner() {
+  return ljRequest.request('/banner/list', '', 'GET');
 }
 
 
@@ -41,21 +42,24 @@ function categoryAll(token) {
 }
 
 /**
- * 获取系统参数
- */
-function getValue(key) {
-  return ljRequest.request('/config/value', {
-    key
-  }, 'GET')
-}
-
-/**
  * 批量获取系统参数
  * @param {Array} keys: 参数  { keys:'servicePhoneNumber,aboutUsTitle, aboutUsContent'}
  * @return 
  */
-function getValues(keys) {
-  return ljRequest.request('/config/values', keys, 'GET')
+function getValues() {
+  const keys = {
+    keys: config.dictKeys.join(',')
+  }
+  return new Promise(resolev => {
+    ljRequest.request('/config/values', keys, 'GET').then(res => {
+      let list = {}
+      for (let item of res) {
+        list[item.key] = item.value;
+      }
+      app.globalData.dictData = list;
+      resolev(true)
+    })
+  })
 }
 
 /**
@@ -70,7 +74,7 @@ function wxappPay(obj) {
 /**
  * 创建订单
  */
-function create(obj){
+function create(obj) {
   console.log(obj, "????????????????")
   return ljRequest.request('/order/create', obj)
 }
@@ -81,7 +85,6 @@ module.exports = {
   getBanner,
   categoryAll,
   goods,
-  getValue,
   getValues,
   wxappPay,
   create

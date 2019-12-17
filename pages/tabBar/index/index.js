@@ -1,11 +1,12 @@
 // pages/splb/splb.js
-// const apiData = require('../../../utils/apiData.js')
 import {
   getBanner,
   goods,
-  categoryAll
-} from '../../../utils/apiData.js'
-const common = require('../../../utils/common.js')
+  categoryAll,
+  getValues
+} from '../../../utils/apiData.js';
+// const common = require('../../../utils/common.js');
+const app = getApp();
 Page({
 
   /**
@@ -84,52 +85,52 @@ Page({
     this.initData();
   },
 
-  //获取初始化数据
+  // 获取初始化数据
   initData() {
-    Promise.all([getBanner(), goods(), categoryAll()]).then(res => {
-      console.log("完成了", res)
+    Promise.all([getBanner(), goods(), categoryAll(), getValues()]).then(res => {
+      console.log('完成了', app.globalData.dictData, res);
       this.setData({
         bannerData: res[0],
         list: res[1],
         categoryAll: res[2]
-      })
-    })
+      });
+    });
   },
 
-  //banner点击事件
+  // banner点击事件
   swiperItem(e) {
     wx.navigateTo({
       url: '../../list/list?id=' + e.currentTarget.id,
-    })
+    });
   },
 
   onTabsChange(e) {
-    console.log('onTabsChange', e)
+    console.log('onTabsChange', e);
     const {
       key
-    } = e.detail
-    const index = this.data.tabs.map((n) => n.key).indexOf(key)
+    } = e.detail;
+    const index = this.data.tabs.map((n) => n.key).indexOf(key);
 
     this.setData({
       key,
       index,
-    })
+    });
   },
   onSwiperChange(e) {
-    console.log('onSwiperChange', e)
+    console.log('onSwiperChange', e);
     const {
       current: index,
       source
-    } = e.detail
+    } = e.detail;
     const {
       key
-    } = this.data.tabs[index]
+    } = this.data.tabs[index];
 
-    if (!!source) {
+    if (source) {
       this.setData({
         key,
         index,
-      })
+      });
     }
   },
 
@@ -137,7 +138,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-    console.log("onReady----生命周期函数--监听页面初次渲染完成")
+    console.log('onReady----生命周期函数--监听页面初次渲染完成');
   },
 
   /**
@@ -146,4 +147,4 @@ Page({
   onShow: function() {
 
   },
-})
+});

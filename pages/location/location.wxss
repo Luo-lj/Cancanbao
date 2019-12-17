@@ -1,0 +1,57 @@
+/* pages/location/location.wxss */
+
+.map {
+  height: 750rpx;
+  padding: 0 40rpx;
+}
+
+.map map {
+  width: 100%;
+  height: 100%;
+}
+
+.infomation {
+  padding: 40rpx;
+}
+
+.top {
+  font-size: 30rpx;
+  color: rgb(153, 153, 153);
+  line-height: 60rpx;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mytitle {
+  font-size: 32rpx;
+  color: #000;
+}
+
+.info {
+  line-height: 44rpx;
+  padding: 10rpx 0px;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  font-size: 32rpx;
+  border-top: #efefef 1px solid;
+  margin-top: 40rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.nav {
+  flex-grow: 1;
+  text-align: center;
+  border-right: rgb(235, 235, 235) 1px solid;
+}
+
+.tel {
+  flex-grow: 1;
+  text-align: center;
+}

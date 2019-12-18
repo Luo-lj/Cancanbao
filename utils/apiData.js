@@ -60,7 +60,7 @@ function collect(obj) {
  * obj = {goodsId: 商品id, token: 登录接口返回的token}
  */
 function collectCheck(obj) {
-  return ljRequest.request('/shop/goods/fav/check', obj, 'GET');
+  return ljRequest.request('/shop/goods/fav/check', obj, 'GET', false);
 }
 
 /**
@@ -114,7 +114,7 @@ module.exports = {
   detail,
   collect,
   collectCheck,
-  collectDelete,
+  collectDelete, 
   collectList,
   getValues,
 }

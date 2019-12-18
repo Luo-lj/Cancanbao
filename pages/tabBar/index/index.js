@@ -15,37 +15,39 @@ Page({
    */
   data: {
     bannerData: [],
-    productData: [{
-      imgSrc: '/images/product/product-1.jpg',
-      name: '极简主义',
-      tips: '中式 | 3室 | 140平方',
-      shoucan: false,
-    }, {
-      imgSrc: '/images/product/product-2.jpg',
-      name: '极简主义',
-      tips: '中式 | 3室 | 140平方',
-      shoucan: false,
-    }, {
-      imgSrc: '/images/product/product-3.jpg',
-      name: '极简主义',
-      tips: '中式 | 3室 | 140平方',
-      shoucan: false,
-    }, {
-      imgSrc: '/images/product/product-4.jpg',
-      name: '极简主义',
-      tips: '中式 | 3室 | 140平方',
-      shoucan: false,
-    }, {
-      imgSrc: '/images/product/product-5.jpg',
-      name: '极简主义',
-      tips: '中式 | 3室 | 140平方',
-      shoucan: false,
-    }, {
-      imgSrc: '/images/product/product-6.jpg',
-      name: '极简主义',
-      tips: '中式 | 3室 | 140平方',
-      shoucan: false,
-    }],
+    productData: [
+    //   {
+    //   imgSrc: '/images/product/product-1.jpg',
+    //   name: '极简主义',
+    //   tips: '中式 | 3室 | 140平方',
+    //   shoucan: false,
+    // }, {
+    //   imgSrc: '/images/product/product-2.jpg',
+    //   name: '极简主义',
+    //   tips: '中式 | 3室 | 140平方',
+    //   shoucan: false,
+    // }, {
+    //   imgSrc: '/images/product/product-3.jpg',
+    //   name: '极简主义',
+    //   tips: '中式 | 3室 | 140平方',
+    //   shoucan: false,
+    // }, {
+    //   imgSrc: '/images/product/product-4.jpg',
+    //   name: '极简主义',
+    //   tips: '中式 | 3室 | 140平方',
+    //   shoucan: false,
+    // }, {
+    //   imgSrc: '/images/product/product-5.jpg',
+    //   name: '极简主义',
+    //   tips: '中式 | 3室 | 140平方',
+    //   shoucan: false,
+    // }, {
+    //   imgSrc: '/images/product/product-6.jpg',
+    //   name: '极简主义',
+    //   tips: '中式 | 3室 | 140平方',
+    //   shoucan: false,
+    // }
+    ],
   },
 
   /**

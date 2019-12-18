@@ -7,16 +7,4 @@
     </view>
     <view slot="append">123</view>
   </l-cell>
-  <l-cell label="插槽内容" desc="Hello World">
-    <view slot="prepend">
-      <view class="cube">
-      </view>
-    </view>
-  </l-cell>
-  <l-cell label="插槽内容" desc="Hello World">
-    <view slot="prepend">
-      <view class="cube">
-      </view>
-    </view>
-  </l-cell>
 </view>

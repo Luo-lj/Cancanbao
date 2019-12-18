@@ -9,7 +9,7 @@
   </view>
   <view class="btn-warp">
     <l-icon type="dianzan"></l-icon>
-    <l-icon type="dianzan"></l-icon>
+    <l-icon type="dianzan" color="{{isShoucan?'#f00':'#999'}}" bind:tap="shoucanTap"></l-icon>
     <button open-type="share">分享</button>
   </view>
 </view>

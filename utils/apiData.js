@@ -18,6 +18,13 @@ function Login(obj, errHandle) {
 }
 
 /**
+ * 检测登录token是否有效
+ */
+function checkToken(obj) {
+  return ljRequest.request('/user/check-token', obj, 'GET', false);
+}
+
+/**
  * 获取banner列表
  */
 function getBanner() {
@@ -108,6 +115,7 @@ function getValues() {
 module.exports = {
   register,
   Login,
+  checkToken,
   getBanner,
   categoryAll,
   goods,

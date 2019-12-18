@@ -1,5 +1,6 @@
 // pages/splb/splb.js
 import {
+  checkToken,
   getBanner,
   goods,
   getValues
@@ -16,37 +17,37 @@ Page({
   data: {
     bannerData: [],
     productData: [
-    //   {
-    //   imgSrc: '/images/product/product-1.jpg',
-    //   name: '极简主义',
-    //   tips: '中式 | 3室 | 140平方',
-    //   shoucan: false,
-    // }, {
-    //   imgSrc: '/images/product/product-2.jpg',
-    //   name: '极简主义',
-    //   tips: '中式 | 3室 | 140平方',
-    //   shoucan: false,
-    // }, {
-    //   imgSrc: '/images/product/product-3.jpg',
-    //   name: '极简主义',
-    //   tips: '中式 | 3室 | 140平方',
-    //   shoucan: false,
-    // }, {
-    //   imgSrc: '/images/product/product-4.jpg',
-    //   name: '极简主义',
-    //   tips: '中式 | 3室 | 140平方',
-    //   shoucan: false,
-    // }, {
-    //   imgSrc: '/images/product/product-5.jpg',
-    //   name: '极简主义',
-    //   tips: '中式 | 3室 | 140平方',
-    //   shoucan: false,
-    // }, {
-    //   imgSrc: '/images/product/product-6.jpg',
-    //   name: '极简主义',
-    //   tips: '中式 | 3室 | 140平方',
-    //   shoucan: false,
-    // }
+      //   {
+      //   imgSrc: '/images/product/product-1.jpg',
+      //   name: '极简主义',
+      //   tips: '中式 | 3室 | 140平方',
+      //   shoucan: false,
+      // }, {
+      //   imgSrc: '/images/product/product-2.jpg',
+      //   name: '极简主义',
+      //   tips: '中式 | 3室 | 140平方',
+      //   shoucan: false,
+      // }, {
+      //   imgSrc: '/images/product/product-3.jpg',
+      //   name: '极简主义',
+      //   tips: '中式 | 3室 | 140平方',
+      //   shoucan: false,
+      // }, {
+      //   imgSrc: '/images/product/product-4.jpg',
+      //   name: '极简主义',
+      //   tips: '中式 | 3室 | 140平方',
+      //   shoucan: false,
+      // }, {
+      //   imgSrc: '/images/product/product-5.jpg',
+      //   name: '极简主义',
+      //   tips: '中式 | 3室 | 140平方',
+      //   shoucan: false,
+      // }, {
+      //   imgSrc: '/images/product/product-6.jpg',
+      //   name: '极简主义',
+      //   tips: '中式 | 3室 | 140平方',
+      //   shoucan: false,
+      // }
     ],
   },
 
@@ -129,9 +130,14 @@ Page({
     if (!app.globalData.userInfo) {
       login();
     } else {
-      this.setData({
-        userInfo: app.globalData.userInfo
-      });
+      checkToken({
+        token: app.globalData.userInfo.token
+      }).then(res => {
+        console.log("检测登录token是否有效", res && res.code == 2000, res)
+        if (res && res.code == 2000) {
+          login();
+        }
+      })
     }
   },
 });

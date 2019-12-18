@@ -6,7 +6,8 @@
     "pages/tabBar/wd/wd",
     "pages/splb/splb",
     "pages/list/list",
-    "pages/location/location"
+    "pages/location/location",
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

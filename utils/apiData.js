@@ -24,21 +24,64 @@ function getBanner() {
   return ljRequest.request('/banner/list', '', 'GET');
 }
 
+/**
+ * 获取所有商品类别
+ */
+function categoryAll(token) {
+  return ljRequest.request('/shop/goods/category/all', {
+    token
+  })
+}
 
 /**
- * 获取商品列表
+ * 获取所有商品列表
  */
 function goods() {
   return ljRequest.request('/shop/goods/list', '', '', 1);
 }
 
 /**
- * 获取商品类别
+ * 获取商品详情
  */
-function categoryAll(token) {
-  return ljRequest.request('/shop/goods/category/all', {
-    token
-  })
+function detail(obj) {
+  return ljRequest.request('/shop/goods/detail', obj, 'GET', 1);
+}
+
+/**
+ * 添加商品收藏
+ * obj = {goodsId: 商品id, token: 登录接口返回的token}
+ */
+function collect(obj) {
+  return ljRequest.request('/shop/goods/fav/add', obj);
+}
+
+/**
+ * 检测是否已收藏
+ * obj = {goodsId: 商品id, token: 登录接口返回的token}
+ */
+function collectCheck(obj) {
+  return ljRequest.request('/shop/goods/fav/check', obj, 'GET');
+}
+
+/**
+ * 删除商品收藏
+ * obj = {goodsId: 商品id, id:收藏记录id ,token: 登录接口返回的token}
+ */
+function collectDelete(obj) {
+  return ljRequest.request('/shop/goods/fav/delete', obj, 'GET');
+}
+
+/**
+ * 商品收藏列表
+ * obj = {
+ *    nameLike: 商品标题模糊搜索关键词
+ *    page: 获取第几页数据
+ *    pageSize: 每页显示多少数据
+ *    token: 登录接口返回的token
+ * }
+ */
+function collectList(obj) {
+  return ljRequest.request('/shop/goods/fav/list', obj, 'POST', 1);
 }
 
 /**
@@ -62,30 +105,16 @@ function getValues() {
   })
 }
 
-/**
- * 小程序支付
- * @param {Array} keys: 参数
- * @return 
- */
-function wxappPay(obj) {
-  return ljRequest.request('/pay/wx/wxapp', obj, 'GET')
-}
-
-/**
- * 创建订单
- */
-function create(obj) {
-  console.log(obj, "????????????????")
-  return ljRequest.request('/order/create', obj)
-}
-
 module.exports = {
   register,
   Login,
   getBanner,
   categoryAll,
   goods,
+  detail,
+  collect,
+  collectCheck,
+  collectDelete,
+  collectList,
   getValues,
-  wxappPay,
-  create
 }

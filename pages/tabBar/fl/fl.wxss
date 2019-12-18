@@ -1,9 +1,44 @@
 /* pages/tabBar/fl/fl.wxss */
+
+.scroll-warp {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.nav-container {
+  width: 180rpx;
+}
+
+.nav-container .nav-warp {
+  text-align: center;
+  padding: 30rpx 0;
+}
+
+.nav-container .active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.nav-warp .nav-title {
+  display: inline-block;
+  font-size: 28rpx;
+  color: #646464;
+  line-height: 1.2;
+  text-align: left;
+  pointer-events: none;
+}
+
+.goods-container {
+  flex: 1;
+  background: #fff;
+  min-height: 100%;
+}
+
 .cube {
   width: 200rpx;
   height: 200rpx;
-  background-color: rgba(0, 0, 0, .3);
+  background-color: rgba(0, 0, 0, 0.014);
   border-radius: 8rpx;
-  margin-right: 40px;
+  margin-right: 40rpx;
   position: relative;
 }

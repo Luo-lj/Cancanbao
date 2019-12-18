@@ -1,0 +1,15 @@
+<!--pages/detail/detail.wxml-->
+<view class="container">
+  <view class="swiper-container">
+    <swiper indicator-dots indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" autoplay>
+      <swiper-item wx:for="{{detailData.pics}}" wx:key="{{item.pic}}">
+        <image src="{{item.pic}}" id="{{item.id}}" bindtap="swiperItem" class="slide-image" />
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="btn-warp">
+    <l-icon type="dianzan"></l-icon>
+    <l-icon type="dianzan"></l-icon>
+    <button open-type="share">分享</button>
+  </view>
+</view>

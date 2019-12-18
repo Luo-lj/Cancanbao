@@ -2,10 +2,11 @@
 import {
   getBanner,
   goods,
-  categoryAll,
   getValues
 } from '../../../utils/apiData.js';
-// const common = require('../../../utils/common.js');
+const {
+  login
+} = require('../../../utils/login.js');
 const app = getApp();
 Page({
 
@@ -44,38 +45,7 @@ Page({
       name: '极简主义',
       tips: '中式 | 3室 | 140平方',
       shoucan: false,
-    }, {
-      imgSrc: '/images/product/product-1.jpg',
-      name: '极简主义',
-      tips: '中式 | 3室 | 140平方',
-      shoucan: false,
-    }, {
-      imgSrc: '/images/product/product-2.jpg',
-      name: '极简主义',
-      tips: '中式 | 3室 | 140平方',
-      shoucan: false,
-    }, {
-      imgSrc: '/images/product/product-3.jpg',
-      name: '极简主义',
-      tips: '中式 | 3室 | 140平方',
-      shoucan: false,
-    }, {
-      imgSrc: '/images/product/product-4.jpg',
-      name: '极简主义',
-      tips: '中式 | 3室 | 140平方',
-      shoucan: false,
-    }, {
-      imgSrc: '/images/product/product-5.jpg',
-      name: '极简主义',
-      tips: '中式 | 3室 | 140平方',
-      shoucan: false,
-    }, {
-      imgSrc: '/images/product/product-6.jpg',
-      name: '极简主义',
-      tips: '中式 | 3室 | 140平方',
-      shoucan: false,
     }],
-    categoryAll: []
   },
 
   /**
@@ -87,14 +57,30 @@ Page({
 
   // 获取初始化数据
   initData() {
-    Promise.all([getBanner(), goods(), categoryAll(), getValues()]).then(res => {
-      console.log('完成了', app.globalData.dictData, res);
+    Promise.all([getBanner(), goods(), getValues()]).then(res => {
+      // console.log('完成了', app.globalData.dictData, res);
+      app.globalData.goodsData = this.getData(res[1]);
+      console.log('所有商品列表', app.globalData.goodsData);
+      console.log('========>>>', app.globalData.goodsData.get(81671));
       this.setData({
         bannerData: res[0],
         list: res[1],
-        categoryAll: res[2]
       });
     });
+  },
+
+
+  getData(data) {
+    const Codemap = new Map();
+    for (let item of data) {
+      let Arr = [];
+      if (Codemap.has(item.categoryId)) {
+        Arr = Codemap.get(item.categoryId);
+      }
+      Arr.push(item);
+      Codemap.set(item.categoryId, Arr); // 添加新的key: code
+    }
+    return Codemap;
   },
 
   // banner点击事件
@@ -135,16 +121,15 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-    console.log('onReady----生命周期函数--监听页面初次渲染完成');
-  },
-
-  /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    if (!app.globalData.userInfo) {
+      login();
+    } else {
+      this.setData({
+        userInfo: app.globalData.userInfo
+      });
+    }
   },
 });

@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    historyData: [],//收藏列表
   },
 
   /**
@@ -24,15 +24,18 @@ Page({
     };
     collectList(obj).then(res => {
       console.log('收藏列表====》》》》', res);
+      this.setData({
+        historyData: res,
+      })
     });
   },
 
   /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
+ * 查看详情页面信息
+ */
+  getDetail(e) {
+    wx.navigateTo({
+      url: `../detail/detail?id=${e.currentTarget.dataset.id}`,
+    });
   },
-
-
 });

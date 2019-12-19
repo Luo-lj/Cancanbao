@@ -1,17 +1,19 @@
 <!--pages/location/location.wxml-->
-<view class="map">
-  <map id="map" scale="14" latitude="{{latitude}}" longitude="{{longitude}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" show-location></map>
-</view>
-<view class='infomation'>
-  <view class='top'>
-    <view class='title'>
-      <view class='mytitle'>连南社保卡中心</view>
-      <view class='juli'>100公里</view>
-    </view>
-    <view class='info'>连南县瑶族自治县三江镇团结大道政府2号楼行政服务中心一楼大厅25、26号窗</view>
+<view wx:if="{{isOk}}">
+  <view class="map">
+    <map id="map" scale="14" latitude="{{latitude}}" longitude="{{longitude}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" show-location></map>
   </view>
-  <view class='bottom'>
-    <view class='nav' bindtap="navigation">导航</view>
-    <view class='tel' bindtap='contact'>电话</view>
+  <view class='infomation'>
+    <view class='top'>
+      <view class='title'>
+        <view class='mytitle'>{{companyName}}</view>
+        <view class='juli'>{{juLi}}公里</view>
+      </view>
+      <view class='info'>{{shopAddress}}</view>
+    </view>
+    <view class='bottom'>
+      <view class='nav' bindtap="navigation">导航</view>
+      <view class='tel' bindtap='contact'>电话</view>
+    </view>
   </view>
 </view>

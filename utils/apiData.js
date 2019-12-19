@@ -14,7 +14,7 @@ function register(obj, errHandle) {
  * 登录获取Token
  */
 function Login(obj, errHandle) {
-  return ljRequest.request('/user/wxapp/login', obj, '', errHandle);
+  return ljRequest.request('/user/wxapp/login', obj, 'GET', errHandle);
 }
 
 /**
@@ -42,9 +42,10 @@ function categoryAll(token) {
 
 /**
  * 获取所有商品列表
+ *  recommendStatus:'',推荐状态：不传该参数获取所有商品；0为一般商品；1为推荐商品
  */
-function goods() {
-  return ljRequest.request('/shop/goods/list', '', '', 1);
+function goods(obj) {
+  return ljRequest.request('/shop/goods/list', obj, '', 1);
 }
 
 /**
@@ -92,6 +93,14 @@ function collectList(obj) {
 }
 
 /**
+ * 计算两地距离
+ * obj = {lat1: 纬度1, lat2: 纬度2, lng1:经度1, lng2:经度2, token: 登录接口返回的token}
+ */
+function distance(obj) {
+  return ljRequest.request('/common/map/distance', obj, 'GET', '', false);
+}
+
+/**
  * 批量获取系统参数
  * @param {Array} keys: 参数  { keys:'servicePhoneNumber,aboutUsTitle, aboutUsContent'}
  * @return 
@@ -124,5 +133,6 @@ module.exports = {
   collectCheck,
   collectDelete, 
   collectList,
+  distance,
   getValues,
 }

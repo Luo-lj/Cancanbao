@@ -1,2 +1,8 @@
 /**app.wxss**/
 @import './styles/weui.wxss';
+
+page {
+  min-height: 100%;
+  position: relative;
+  box-sizing: border-box;
+}

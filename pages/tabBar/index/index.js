@@ -17,37 +17,37 @@ Page({
   data: {
     bannerData: [],
     productData: [
-      //   {
-      //   imgSrc: '/images/product/product-1.jpg',
-      //   name: '极简主义',
-      //   tips: '中式 | 3室 | 140平方',
-      //   shoucan: false,
-      // }, {
-      //   imgSrc: '/images/product/product-2.jpg',
-      //   name: '极简主义',
-      //   tips: '中式 | 3室 | 140平方',
-      //   shoucan: false,
-      // }, {
-      //   imgSrc: '/images/product/product-3.jpg',
-      //   name: '极简主义',
-      //   tips: '中式 | 3室 | 140平方',
-      //   shoucan: false,
-      // }, {
-      //   imgSrc: '/images/product/product-4.jpg',
-      //   name: '极简主义',
-      //   tips: '中式 | 3室 | 140平方',
-      //   shoucan: false,
-      // }, {
-      //   imgSrc: '/images/product/product-5.jpg',
-      //   name: '极简主义',
-      //   tips: '中式 | 3室 | 140平方',
-      //   shoucan: false,
-      // }, {
-      //   imgSrc: '/images/product/product-6.jpg',
-      //   name: '极简主义',
-      //   tips: '中式 | 3室 | 140平方',
-      //   shoucan: false,
-      // }
+        {
+        imgSrc: '/images/product/product-1.jpg',
+        name: '极简主义',
+        tips: '中式 | 3室 | 140平方',
+        shoucan: false,
+      }, {
+        imgSrc: '/images/product/product-2.jpg',
+        name: '极简主义',
+        tips: '中式 | 3室 | 140平方',
+        shoucan: false,
+      }, {
+        imgSrc: '/images/product/product-3.jpg',
+        name: '极简主义',
+        tips: '中式 | 3室 | 140平方',
+        shoucan: false,
+      }, {
+        imgSrc: '/images/product/product-4.jpg',
+        name: '极简主义',
+        tips: '中式 | 3室 | 140平方',
+        shoucan: false,
+      }, {
+        imgSrc: '/images/product/product-5.jpg',
+        name: '极简主义',
+        tips: '中式 | 3室 | 140平方',
+        shoucan: false,
+      }, {
+        imgSrc: '/images/product/product-6.jpg',
+        name: '极简主义',
+        tips: '中式 | 3室 | 140平方',
+        shoucan: false,
+      }
     ],
   },
 
@@ -55,16 +55,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    app.globalData.userInfo = null;
     this.initData();
   },
 
   // 获取初始化数据
   initData() {
-    Promise.all([getBanner(), goods(), getValues()]).then(res => {
-      // console.log('完成了', app.globalData.dictData, res);
+    Promise.all([getBanner(), goods({ recommendStatus: 0 }), goods({recommendStatus: 1}),getValues()]).then(res => {
       app.globalData.goodsData = this.getData(res[1]);
+      app.globalData.recommendData = this.getData(res[2]);
+      console.log("Promise.all ===>>>", res)
       console.log('所有商品列表', app.globalData.goodsData);
-      console.log('========>>>', app.globalData.goodsData.get(81671));
       this.setData({
         bannerData: res[0],
         list: res[1],
@@ -133,7 +134,8 @@ Page({
       checkToken({
         token: app.globalData.userInfo.token
       }).then(res => {
-        console.log("检测登录token是否有效", res && res.code == 2000, res)
+        console.log("检测登录token是否有效", res,)
+        console.log("判断==》》", res && res.code == 2000, )
         if (res && res.code == 2000) {
           login();
         }

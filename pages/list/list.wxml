@@ -1,10 +1,8 @@
 <!--pages/list/list.wxml-->
 <view>
-  <l-cell label="插槽内容" desc="Hello World">
+  <l-cell wx:for="{{historyData}}" wx:key="{{index}}" label="{{item.goodsName}}" data-id="{{item.goodsId}}" access bind:tap="getDetail">
     <view slot="prepend">
-      <view class="cube">
-      </view>
+      <image class="cube" src="{{item.pic}}"></image>
     </view>
-    <view slot="append">123</view>
   </l-cell>
 </view>

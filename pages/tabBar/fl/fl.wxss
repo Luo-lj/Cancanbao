@@ -8,6 +8,7 @@
 
 .nav-container {
   width: 180rpx;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .nav-container .nav-warp {
@@ -16,7 +17,7 @@
 }
 
 .nav-container .active {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color:#fff;
 }
 
 .nav-warp .nav-title {
@@ -41,4 +42,11 @@
   border-radius: 8rpx;
   margin-right: 40rpx;
   position: relative;
+}
+
+.no-data{
+  padding: 150px 0;
+  text-align: center;
+  font-size: 30rpx;
+  color: #ccc;
 }

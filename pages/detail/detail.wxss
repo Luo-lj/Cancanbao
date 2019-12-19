@@ -2,3 +2,38 @@
   width: 100%;
   height: 550rpx;
 }
+
+.btn-warp {
+  display: flex;
+  padding: 0 20px;
+}
+
+.btn-warp .btn-l {
+  width: 50px;
+  position: relative;
+}
+
+.btn-warp .btn-l button{
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.btn-warp .btn-in {
+  width: 50px;
+}
+
+.btn-warp .btn-r {
+  flex: 1;
+}
+
+.btn-warp .btn-r .cancat-btn{
+  border-radius: 50px;
+  border:1px solid #999;
+  text-align: center;
+}
+
+.btn-warp .btn-r .cancat-btn:active{
+  background: #eee;
+}

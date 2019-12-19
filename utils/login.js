@@ -11,7 +11,9 @@ function login() {
       success(res) {
         if (res.code) {
           Login({
-            code: res.code
+            code: res.code,
+            token:'',
+            type:'2'
           },false).then(res => {
             if (res.code == 10000) {
               userRegister();

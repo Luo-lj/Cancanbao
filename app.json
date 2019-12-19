@@ -4,10 +4,10 @@
     "pages/tabBar/fl/fl",
     "pages/tabBar/look/look",
     "pages/tabBar/wd/wd",
-    "pages/splb/splb",
     "pages/list/list",
     "pages/location/location",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/showImg/showImg"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,5 +1,6 @@
 // pages/tabBar/wd/wd.js
 const app = getApp();
+// import {} from '../../../utils/apiData.js';
 const {
   login
 } = require('../../../utils/login.js');
@@ -27,9 +28,15 @@ Page({
     if (!app.globalData.userInfo) {
       login();
     } else {
-      this.setData({
-        userInfo: app.globalData.userInfo
-      });
+      checkToken({
+        token: app.globalData.userInfo.token
+      }).then(res => {
+        console.log("检测登录token是否有效", res)
+        console.log("判断==》》", res && res.code == 2000)
+        if (res && res.code == 2000) {
+          login();
+        }
+      })
     }
   },
 
@@ -50,5 +57,6 @@ Page({
   /** 关于我们 **/
   aboutUs() {
     common.showModal(app.globalData.dictData['aboutUsContent'], app.globalData.dictData['aboutUsTitle']);
-  }
+  },
+
 });

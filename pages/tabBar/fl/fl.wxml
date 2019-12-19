@@ -1,15 +1,20 @@
 <!--pages/tabBar/fl/fl.wxml-->
-<view class="scroll-warp">
-  <scroll-view class="nav-container" scroll-y="true">
+<view class="scroll-warp" wx:if="{{isOk}}">
+  <scroll-view class="nav-container" scroll-y style="height: {{windowHeight}}px">
     <view wx:for="{{categoryAll}}" wx:key="{{item.index}}" class="nav-warp {{id == item.id ?'active':''}}" data-id="{{item.id}}" bind:tap="selectGoods">
       <view class="nav-title">{{item.name}}</view>
     </view>
   </scroll-view>
-  <scroll-view class="classify-container" scroll-y="true">
-    <l-cell wx:for="{{goodslist}}" wx:key="index" label="{{item.name}}" desc="描述" data-id="{{item.id}}" bind:tap="getDetail">
-      <view slot="prepend">
-        <image class="cube" src="{{item.pic}}"></image>
-      </view>
-    </l-cell>
+  <scroll-view class="classify-container" scroll-y style="height: {{windowHeight}}px">
+    <block wx:if="{{goodslist.length}}">
+      <l-cell wx:for="{{goodslist}}" wx:key="index" label="{{item.name}}" desc="描述" data-id="{{item.id}}" bind:tap="getDetail">
+        <view slot="prepend">
+          <image class="cube" src="{{item.pic}}"></image>
+        </view>
+      </l-cell>
+    </block>
+    <block wx:else>
+      <view class="no-data">暂无数据</view>
+    </block>
   </scroll-view>
 </view>

@@ -5,12 +5,13 @@
 
 .btn-warp {
   display: flex;
-  padding: 20px;
+  padding: 0 20px;
 }
 
 .btn-warp .btn-l {
   width: 50px;
   position: relative;
+  padding-top: 5px;
 }
 
 .btn-warp .btn-l button{
@@ -22,6 +23,7 @@
 
 .btn-warp .btn-in {
   width: 50px;
+  padding-top: 5px;
 }
 
 .btn-warp .btn-r {
@@ -32,6 +34,7 @@
   border-radius: 50px;
   border:1px solid #999;
   text-align: center;
+  line-height: 40px;
 }
 
 .btn-warp .btn-r .cancat-btn:active{

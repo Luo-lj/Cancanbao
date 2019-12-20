@@ -1,5 +1,5 @@
 <!--pages/detail/detail.wxml-->
-<view class="container">
+<view class="container" wx:if="{{isOk}}">
   <view class="swiper-container">
     <swiper indicator-dots indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" autoplay>
       <swiper-item wx:for="{{detailData.pics}}" wx:key="{{item.pic}}">
@@ -13,11 +13,11 @@
   </view>
   <view class="btn-warp">
     <view class="btn-l">
-      <l-icon type="fenxiang"></l-icon>
+      <l-icon type="fenxiang" size="48"></l-icon>
       <button open-type="share">1</button>
     </view>
     <view class="btn-in">
-      <l-icon type="{{isShoucan?'shoucang1':'shoucang'}}" color="{{isShoucan?'#f00':''}}" bind:tap="shoucanTap"></l-icon>
+      <l-icon type="{{isShoucan?'shoucang1':'shoucang'}}" color="{{isShoucan?'#f5f800':''}}" size="48" bind:tap="shoucanTap"></l-icon>
     </view>
     <view class="btn-r">
       <view class="cancat-btn" bindtap="contact">联系客服</view>

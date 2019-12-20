@@ -1,7 +1,7 @@
 // pages/tabBar/fl/fl.js
-import {
+const {
   categoryAll,
-} from '../../../utils/apiData.js';
+} = require('../../../utils/apiData.js');
 const app = getApp();
 Page({
 

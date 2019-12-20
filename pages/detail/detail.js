@@ -1,10 +1,10 @@
 // pages/detail/detail.js
-import {
+const {
   detail,
   collect,
   collectCheck,
   collectDelete,
-} from '../../utils/apiData.js';
+} = require('../../utils/apiData.js');
 const app = getApp();
 Page({
 
@@ -12,6 +12,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isOk: false,
     id: null,
     goodsId: '', // 商品的goodsId
     isShoucan: false, // 当前商品是否收藏
@@ -41,6 +42,7 @@ Page({
           this.data.isShoucan = true;
         }
         this.setData({
+          isOk: true,
           id: options.id,
           goodsId,
           isShoucan: this.data.isShoucan,

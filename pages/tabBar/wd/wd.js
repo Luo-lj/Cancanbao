@@ -1,8 +1,8 @@
 // pages/tabBar/wd/wd.js
 const app = getApp();
-import {
+const {
   checkToken
-} from '../../../utils/apiData.js';
+} = require('../../../utils/apiData.js');
 const {
   login
 } = require('../../../utils/login.js');

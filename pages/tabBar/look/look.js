@@ -14,7 +14,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      lookData: app.globalData.recommendData,
+      lookData: app.globalData.goodsArr,
     });
   },
 

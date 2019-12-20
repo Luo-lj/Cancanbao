@@ -7,7 +7,7 @@ export default Component({
     },
     size: {
       type: [String, Number],
-      value: 36
+      value: 40
     },
     color: {
       type: String,

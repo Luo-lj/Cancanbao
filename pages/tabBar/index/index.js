@@ -1,10 +1,10 @@
 // pages/splb/splb.js
-import {
+const {
   checkToken,
   getBanner,
   goods,
   getValues
-} from '../../../utils/apiData.js';
+} = require('../../../utils/apiData.js');
 const {
   login
 } = require('../../../utils/login.js');
@@ -30,20 +30,18 @@ Page({
 
   // 获取初始化数据
   initData() {
-    Promise.all([getBanner(), goods({
-      recommendStatus: 0
-    }), goods({
+    Promise.all([getBanner(), goods(), goods({
       recommendStatus: 1
     }), getValues()]).then(res => {
       app.globalData.goodsData = this.getData(res[1]);
-      app.globalData.recommendData = res[2];
+      app.globalData.goodsArr = res[1]; // 所有商品列表
+      app.globalData.recommendData = res[2]; // 推荐商品列表
       console.log('Promise.all ===>>>', res);
       console.log('所有商品列表', app.globalData.goodsData);
       this.setData({
         bannerData: res[0],
         recommendData: res[2],
       });
-      console.log(this.data.recommendData, '???????????????');
     });
   },
 

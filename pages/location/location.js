@@ -1,7 +1,7 @@
 // pages/location/location.js
-import {
+const {
   distance,
-} from '../../utils/apiData.js';
+} = require('../../utils/apiData.js');
 const app = getApp();
 Page({
 

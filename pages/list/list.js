@@ -1,7 +1,7 @@
 // pages/list/list.js
-import {
+const {
   collectList,
-} from '../../utils/apiData.js';
+} = require('../../utils/apiData.js');
 const app = getApp();
 Page({
 
@@ -31,8 +31,8 @@ Page({
   },
 
   /**
- * 查看详情页面信息
- */
+   * 查看详情页面信息
+   */
   getDetail(e) {
     wx.navigateTo({
       url: `../detail/detail?id=${e.currentTarget.dataset.id}`,

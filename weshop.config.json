@@ -1,6 +1,0 @@
-{
-  "mainPackage": "ssh://git@gitlab.dg.com:10086/FrontEnd/yss/main/digitalgd.git",
-  "report": {
-    "onShow": "getApp().sdk.adapter.onShow()"
-  }
-}

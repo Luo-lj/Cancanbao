@@ -8,15 +8,16 @@ const common = require('./common.js')
  * @param {boolean | 1 } errHandle: 值为true弹出提示信息；值为false则需处理异常；值为1弹出提示信息并返回上页;
  * @param {Object} header: 请求头 application/x-www-form-urlencoded 或 application/json
  */
-function request(url, params, method = 'POST', errHandle = true, urlPrex = true, header = {
+function request(url, params, method, errHandle = true, urlPrex = true, header = {
   'Content-Type': 'application/x-www-form-urlencoded'
 }) {
   common.showLoading();
   console.log("请求参数===>>>", Object.assign({}, params))
+  console.log("请求方式===>>>", method)
   return new Promise((resolve, reject) => {
     wx.request({
       url: `${config.apiUrl}/${urlPrex?config.myUrl:''}${url}`,
-      method,
+      method: method ? method : 'POST',
       data: Object.assign({}, params),
       dataType: 'json',
       header,

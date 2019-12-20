@@ -48,14 +48,8 @@ Page({
    * 查看详情页面信息
    */
   getDetail(e) {
-    if (this.data.id == '82215') {
-      wx.navigateTo({
-        url: `../../showImg/showImg?id=${e.currentTarget.dataset.id}`,
-      });
-    } else {
-      wx.navigateTo({
-        url: `../../detail/detail?id=${e.currentTarget.dataset.id}`,
-      });
-    }
+    wx.navigateTo({
+      url: `../../detail/detail?id=${e.currentTarget.dataset.id}`,
+    });
   },
 });

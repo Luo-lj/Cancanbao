@@ -7,6 +7,6 @@ App({
     userInfo: null, // {uid: 1122330, openid: "", token: ""}
     dictData: null, // 字典数据
     goodsData: null, // 所有商品列表 Map对象
-    recommendData: null,//推荐商品列表
+    recommendData: null, // 推荐商品列表
   }
 });

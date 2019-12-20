@@ -12,9 +12,9 @@ Page({
     isOk: false,
     latitude: '', // 地图中心纬度
     longitude: '', // 地图中心经度
-    juLi: '', //两地距离
-    companyName: '', //店铺名字
-    shopAddress:'',//店铺地址
+    juLi: '', // 两地距离
+    companyName: '', // 店铺名字
+    shopAddress: '', // 店铺地址
     markers: [],
   },
 
@@ -34,9 +34,9 @@ Page({
           lat2: latitude,
           lng1: res.longitude,
           lng2: longitude
-        }
+        };
         distance(obj).then(res => {
-          console.log("距离====>>>>", res.toFixed(2))
+          console.log('距离====>>>>', res.toFixed(2));
           _this.setData({
             isOk: true,
             latitude,
@@ -58,9 +58,9 @@ Page({
               }
             }]
           });
-        })
+        });
       }
-    })
+    });
 
 
   },

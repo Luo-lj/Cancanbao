@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    historyData: [],//收藏列表
+    historyData: [], // 收藏列表
   },
 
   /**
@@ -26,7 +26,7 @@ Page({
       console.log('收藏列表====》》》》', res);
       this.setData({
         historyData: res,
-      })
+      });
     });
   },
 

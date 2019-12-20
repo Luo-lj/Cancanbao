@@ -7,6 +7,10 @@
       </swiper-item>
     </swiper>
   </view>
+  <view class="product-warp">
+    <view class="title">{{detailData.category.name}}</view>
+    <view class="content">{{content}}</view>
+  </view>
   <view class="btn-warp">
     <view class="btn-l">
       <l-icon type="fenxiang"></l-icon>
@@ -16,7 +20,7 @@
       <l-icon type="{{isShoucan?'shoucang1':'shoucang'}}" color="{{isShoucan?'#f00':''}}" bind:tap="shoucanTap"></l-icon>
     </view>
     <view class="btn-r">
-      <view class="cancat-btn">联系客服</view>
+      <view class="cancat-btn" bindtap="contact">联系客服</view>
     </view>
   </view>
 </view>

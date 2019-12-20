@@ -6,18 +6,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    srcImg:''
+    srcImg: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData.goodsData.get(82215))
-    const data = app.globalData.goodsData.get(82215)
+    console.log(app.globalData.goodsData.get(82215));
+    const data = app.globalData.goodsData.get(82215);
     this.setData({
       srcImg: data[0].pic
-    })
+    });
   },
 
   /**
@@ -68,4 +68,4 @@ Page({
   onShareAppMessage: function () {
 
   }
-})
+});

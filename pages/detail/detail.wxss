@@ -5,7 +5,7 @@
 
 .btn-warp {
   display: flex;
-  padding: 0 20px;
+  padding: 20px;
 }
 
 .btn-warp .btn-l {
@@ -36,4 +36,18 @@
 
 .btn-warp .btn-r .cancat-btn:active{
   background: #eee;
+}
+
+.product-warp{
+  padding: 20px;
+}
+
+.product-warp .title{
+  font-weight: bold;
+}
+
+.product-warp .content{
+  color: #666;
+  font-size: 32rpx;
+  line-height: 40px;
 }

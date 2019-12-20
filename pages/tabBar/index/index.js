@@ -8,6 +8,7 @@ import {
 const {
   login
 } = require('../../../utils/login.js');
+const common = require('../../../utils/common.js');
 const app = getApp();
 Page({
 
@@ -15,40 +16,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bannerData: [],
-    productData: [
-        {
-        imgSrc: '/images/product/product-1.jpg',
-        name: '极简主义',
-        tips: '中式 | 3室 | 140平方',
-        shoucan: false,
-      }, {
-        imgSrc: '/images/product/product-2.jpg',
-        name: '极简主义',
-        tips: '中式 | 3室 | 140平方',
-        shoucan: false,
-      }, {
-        imgSrc: '/images/product/product-3.jpg',
-        name: '极简主义',
-        tips: '中式 | 3室 | 140平方',
-        shoucan: false,
-      }, {
-        imgSrc: '/images/product/product-4.jpg',
-        name: '极简主义',
-        tips: '中式 | 3室 | 140平方',
-        shoucan: false,
-      }, {
-        imgSrc: '/images/product/product-5.jpg',
-        name: '极简主义',
-        tips: '中式 | 3室 | 140平方',
-        shoucan: false,
-      }, {
-        imgSrc: '/images/product/product-6.jpg',
-        name: '极简主义',
-        tips: '中式 | 3室 | 140平方',
-        shoucan: false,
-      }
-    ],
+    bannerData: [], // banner列表
+    recommendData: [], // 推荐商品数据
   },
 
   /**
@@ -61,15 +30,20 @@ Page({
 
   // 获取初始化数据
   initData() {
-    Promise.all([getBanner(), goods({ recommendStatus: 0 }), goods({recommendStatus: 1}),getValues()]).then(res => {
+    Promise.all([getBanner(), goods({
+      recommendStatus: 0
+    }), goods({
+      recommendStatus: 1
+    }), getValues()]).then(res => {
       app.globalData.goodsData = this.getData(res[1]);
-      app.globalData.recommendData = this.getData(res[2]);
-      console.log("Promise.all ===>>>", res)
+      app.globalData.recommendData = res[2];
+      console.log('Promise.all ===>>>', res);
       console.log('所有商品列表', app.globalData.goodsData);
       this.setData({
         bannerData: res[0],
-        list: res[1],
+        recommendData: res[2],
       });
+      console.log(this.data.recommendData, '???????????????');
     });
   },
 
@@ -94,34 +68,16 @@ Page({
     });
   },
 
-  onTabsChange(e) {
-    console.log('onTabsChange', e);
-    const {
-      key
-    } = e.detail;
-    const index = this.data.tabs.map((n) => n.key).indexOf(key);
-
-    this.setData({
-      key,
-      index,
-    });
+  // 设计师
+  designerTap() {
+    common.showModal('计划于2020年1月份上线，给你带来不便，深感抱歉。');
   },
-  onSwiperChange(e) {
-    console.log('onSwiperChange', e);
-    const {
-      current: index,
-      source
-    } = e.detail;
-    const {
-      key
-    } = this.data.tabs[index];
 
-    if (source) {
-      this.setData({
-        key,
-        index,
-      });
-    }
+  // 去详情页
+  goDetail(e) {
+    wx.navigateTo({
+      url: `../../detail/detail?id=${e.currentTarget.dataset.id}`,
+    });
   },
 
   /**
@@ -134,12 +90,12 @@ Page({
       checkToken({
         token: app.globalData.userInfo.token
       }).then(res => {
-        console.log("检测登录token是否有效", res,)
-        console.log("判断==》》", res && res.code == 2000, )
+        console.log('检测登录token是否有效', res);
+        console.log('判断==》》', res && res.code == 2000);
         if (res && res.code == 2000) {
           login();
         }
-      })
+      });
     }
   },
 });

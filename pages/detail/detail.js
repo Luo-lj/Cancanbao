@@ -5,6 +5,7 @@ const {
   collectCheck,
   collectDelete,
 } = require('../../utils/apiData.js');
+const common = require('../../utils/common.js');
 const app = getApp();
 Page({
 
@@ -93,9 +94,10 @@ Page({
 
   /** 联系客服 **/
   contact() {
-    wx.makePhoneCall({
-      phoneNumber: app.globalData.dictData['servicePhoneNumber'] // 仅为示例，并非真实的电话号码
-    });
+    common.showModal('地址:' + app.globalData.dictData['shopAddress'] + ',欢迎到店咨询。');
+    // wx.makePhoneCall({
+    //   phoneNumber: app.globalData.dictData['servicePhoneNumber'] // 仅为示例，并非真实的电话号码
+    // });
   },
 
 });

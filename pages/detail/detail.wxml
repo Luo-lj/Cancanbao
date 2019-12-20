@@ -20,7 +20,7 @@
       <l-icon type="{{isShoucan?'shoucang1':'shoucang'}}" color="{{isShoucan?'#f5f800':''}}" size="48" bind:tap="shoucanTap"></l-icon>
     </view>
     <view class="btn-r">
-      <view class="cancat-btn" bindtap="contact">联系客服</view>
+      <view class="cancat-btn" bindtap="contact">联系我们</view>
     </view>
   </view>
 </view>

@@ -13,7 +13,7 @@
     </view>
     <view class='bottom'>
       <view class='nav' bindtap="navigation">导航</view>
-      <view class='tel' bindtap='contact'>电话</view>
+      <!-- <view class='tel' bindtap='contact'>电话</view> -->
     </view>
   </view>
 </view>

@@ -39,7 +39,7 @@
   display: flex;
   justify-content: space-between;
   font-size: 32rpx;
-  border-top: #efefef 1px solid;
+  /* border-top: #efefef 1px solid; */
   margin-top: 40rpx;
   height: 80rpx;
   line-height: 80rpx;
@@ -48,7 +48,9 @@
 .nav {
   flex-grow: 1;
   text-align: center;
-  border-right: rgb(235, 235, 235) 1px solid;
+  /* border-right: rgb(235, 235, 235) 1px solid; */
+  border: rgb(235, 235, 235) 1px solid;
+  border-radius: 8rpx;
 }
 
 .tel {

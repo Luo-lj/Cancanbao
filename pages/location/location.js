@@ -82,13 +82,4 @@ Page({
       }
     });
   },
-
-  /**
-   * 电话
-   */
-  contact() {
-    // wx.makePhoneCall({
-    //   phoneNumber: app.globalData.dictData['servicePhoneNumber'] // 仅为示例，并非真实的电话号码
-    // });
-  },
 });

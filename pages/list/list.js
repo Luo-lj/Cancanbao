@@ -13,9 +13,9 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 生命周期函数--监听页面显示
    */
-  onLoad: function(options) {
+  onShow: function() {
     let obj = {
       nameLike: '', // 商品标题模糊搜索关键词
       page: '', // 获取第几页数据
@@ -24,9 +24,11 @@ Page({
     };
     collectList(obj).then(res => {
       console.log('收藏列表====》》》》', res);
-      this.setData({
-        historyData: res,
-      });
+      if (Array.isArray(res)) {
+        this.setData({
+          historyData: res,
+        });
+      }
     });
   },
 

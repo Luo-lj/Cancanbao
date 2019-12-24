@@ -1,56 +1,44 @@
+@import "/components/wxParse/wxParse.wxss";
+
 .swiper-container, swiper, .slide-image {
   width: 100%;
   height: 550rpx;
 }
 
+.product-warp {
+  font-size: 40rpx;
+  color: #666;
+  line-height: 40px;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px 20px 0 20px;
+}
+
 .btn-warp {
   display: flex;
   padding: 0 20px;
+  border-top:1px solid #d5d5d5;
 }
 
 .btn-warp .btn-l {
-  width: 50px;
-  position: relative;
+  flex:1;
   padding-top: 5px;
-}
-
-.btn-warp .btn-l button{
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-}
-
-.btn-warp .btn-in {
-  width: 50px;
-  padding-top: 5px;
+  text-align: center;
 }
 
 .btn-warp .btn-r {
-  flex: 1;
-}
-
-.btn-warp .btn-r .cancat-btn{
-  border-radius: 50px;
-  border:1px solid #999;
+  flex:1;
+  padding-top: 5px;
   text-align: center;
-  line-height: 40px;
+  position: relative;
 }
 
-.btn-warp .btn-r .cancat-btn:active{
-  background: #eee;
+.btn-warp .btn-r button{
+  opacity: 0;
+  position: absolute;
+  width: 100%;
 }
 
-.product-warp{
-  padding: 20px;
-}
-
-.product-warp .title{
-  font-weight: bold;
-}
-
-.product-warp .content{
-  color: #666;
-  font-size: 32rpx;
-  line-height: 40px;
+.btn-warp text{
+  padding-left: 10px;
 }

@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "l-icon": "/components/l-icon/index"
+    "l-icon": "/components/l-icon/index",
+    "l-list": "/components/l-list/index",
+    "l-cell": "/components/l-cell/index"
   }
 }

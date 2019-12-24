@@ -6,8 +6,7 @@
     "pages/tabBar/wd/wd",
     "pages/list/list",
     "pages/location/location",
-    "pages/detail/detail",
-    "pages/showImg/showImg"
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

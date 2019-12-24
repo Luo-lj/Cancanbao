@@ -1,4 +1,5 @@
 // pages/detail/detail.js
+const WxParse = require('../../components/wxParse/wxParse.js');
 const {
   detail,
   collect,
@@ -14,6 +15,7 @@ Page({
    */
   data: {
     isOk: false,
+    windowHeight:null,
     id: null,
     goodsId: '', // 商品的goodsId
     isShoucan: false, // 当前商品是否收藏
@@ -26,15 +28,16 @@ Page({
    */
   onLoad: function(options) {
     console.log(options, '分享点进来的  ----  detail');
+    const windowHeight = wx.getSystemInfoSync().windowHeight; // 获取屏幕的高度
     detail({
       id: options.id
     }).then(res => {
       console.log('获取商品详情', res);
-      let content = res.content.replace(/<\/?.+?>/g, '');
+      let content = res.content;
       const goodsId = res.pics[0].goodsId;
       collectCheck({
         goodsId,
-        token: app.globalData.userInfo.token
+        // token: app.globalData.userInfo.token
       }).then(re => {
         console.log('是否已经收藏', re);
         if (re != '已收藏') {
@@ -42,8 +45,15 @@ Page({
         } else {
           this.data.isShoucan = true;
         }
+
+        let that = this;
+        WxParse.wxParse('article', 'html', content, that, 0);
+
+        res.extJson = JSON.stringify(res.extJson) == "{}" ? false: res.extJson;
+        console.log(res.extJson, "00000000000000000")
         this.setData({
           isOk: true,
+          windowHeight,
           id: options.id,
           goodsId,
           isShoucan: this.data.isShoucan,
@@ -89,12 +99,6 @@ Page({
       title: this.data.detailData.basicInfo.name,
       path: `/pages/detail/detail?id=${this.data.id}`
     };
-  },
-
-
-  /** 联系客服 **/
-  contact() {
-    common.showModal(app.globalData.dictData['companyName'] + ',欢迎到店咨询。');
   },
 
 });

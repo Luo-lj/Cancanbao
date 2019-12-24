@@ -1,0 +1,13 @@
+<view class="list component-class {{disabled ? 'list-disabled' : ''}}">
+  <view wx:if="{{ title }}" class="list-title-container title-class">
+    <view class="list-title">{{ title }}</view>
+    <view class="list-action" wx:if="{{ action }}">
+      <slot name="action" />
+    </view>
+  </view>
+  <view class="list-content">
+    <slot name="content" />
+    <slot />
+  </view>
+  <view wx:if="{{ disabled }}" class="list-disabled-mask"></view>
+</view>

@@ -62,9 +62,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "pages/detail/detail",
 					"pathName": "pages/detail/detail",
+					"query": "id=243110",
 					"scene": null
 				}
 			]

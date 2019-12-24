@@ -1,26 +1,40 @@
 <!--pages/detail/detail.wxml-->
+<import src="../../components/wxParse/wxParse.wxml" />
+
 <view class="container" wx:if="{{isOk}}">
-  <view class="swiper-container">
-    <swiper indicator-dots indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" autoplay>
-      <swiper-item wx:for="{{detailData.pics}}" wx:key="{{item.pic}}">
-        <image src="{{item.pic}}" id="{{item.id}}" bindtap="swiperItem" class="slide-image" />
-      </swiper-item>
-    </swiper>
-  </view>
-  <view class="product-warp">
-    <view class="title">{{detailData.category.name}}</view>
-    <view class="content">{{content}}</view>
-  </view>
-  <view class="btn-warp">
-    <view class="btn-l">
-      <l-icon type="fenxiang" size="48"></l-icon>
-      <button open-type="share">1</button>
+  <view style="height: {{windowHeight - 50}}px;overflow: auto;">
+    <view class="swiper-container">
+      <swiper indicator-dots indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" autoplay>
+        <swiper-item wx:for="{{detailData.pics}}" wx:key="{{item.pic}}">
+          <image src="{{item.pic}}" id="{{item.id}}" bindtap="swiperItem" class="slide-image" />
+        </swiper-item>
+      </swiper>
     </view>
-    <view class="btn-in">
-      <l-icon type="{{isShoucan?'shoucang1':'shoucang'}}" color="{{isShoucan?'#f5f800':''}}" size="48" bind:tap="shoucanTap"></l-icon>
+    <view class="product-warp">{{detailData.category.name}}</view>
+    <l-list title="用料" wx:if="{{detailData.extJson}}">
+      <block wx:for="{{detailData.extJson}}" wx:for-index="key" wx:for-item="value" wx:key="index">
+        <l-cell label="{{key}}">
+          <view slot="append">{{value}}</view>
+        </l-cell>
+      </block>
+    </l-list>
+
+    <l-list title="步骤" wx:if="{{detailData.content}}">
+      <view style="padding:0 20px;">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+      </view>
+    </l-list>
+  </view>
+
+  <view class="btn-warp">
+    <view class="btn-l" bind:tap="shoucanTap">
+      <l-icon type="{{isShoucan?'aixin1':'aixin'}}" color="{{isShoucan?'#f5f800':''}}" size="48"></l-icon>
+      <text>{{isShoucan?'已收藏':'收藏'}}</text>
     </view>
     <view class="btn-r">
-      <view class="cancat-btn" bindtap="contact">联系我们</view>
+      <button open-type="share">1</button>
+      <l-icon type="fenxiang" size="48"></l-icon>
+      <text>分享</text>
     </view>
   </view>
 </view>

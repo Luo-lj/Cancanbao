@@ -6,15 +6,15 @@ const {
 
 //登录
 function login() {
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     wx.login({
       success(res) {
         if (res.code) {
           Login({
             code: res.code,
-            token:'',
-            type:'2'
-          },false).then(res => {
+            token: '',
+            type: '2'
+          }, false).then(res => {
             if (res.code == 10000) {
               userRegister();
             } else {
@@ -29,11 +29,13 @@ function login() {
 }
 
 //注册
-function userRegister(){
+function userRegister() {
   wx.login({
     success(res) {
       if (res.code) {
-        register({ code: res.code }, false).then(res => {
+        register({
+          code: res.code
+        }, false).then(res => {
           login();
         })
       }

@@ -25,6 +25,13 @@ function checkToken(obj) {
 }
 
 /**
+ * 修改用户信息
+ */
+function userModify(obj) {
+  return ljRequest.request('/user/modify', obj, 'POST');
+}
+
+/**
  * 获取banner列表
  */
 function getBanner() {
@@ -76,7 +83,7 @@ function collectCheck(obj) {
  * obj = {goodsId: 商品id, id:收藏记录id ,token: 登录接口返回的token}
  */
 function collectDelete(obj) {
-  return ljRequest.request('/shop/goods/fav/delete', obj, 'GET');
+  return ljRequest.request('/shop/goods/fav/delete', obj, 'POST');
 }
 
 /**
@@ -125,6 +132,7 @@ module.exports = {
   register,
   Login,
   checkToken,
+  userModify,
   getBanner,
   categoryAll,
   goods,

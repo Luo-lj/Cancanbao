@@ -61,8 +61,9 @@ Page({
 
   // banner点击事件
   swiperItem(e) {
+    console.log(e);
     wx.navigateTo({
-      url: '../../list/list?id=' + e.currentTarget.id,
+      url: '../../detail/detail?id=' + e.currentTarget.id,
     });
   },
 

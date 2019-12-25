@@ -1,6 +1,7 @@
 // pages/tabBar/wd/wd.js
 const app = getApp();
 const {
+  userModify,
   checkToken
 } = require('../../../utils/apiData.js');
 const {
@@ -19,9 +20,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-
-  },
+  onLoad: function(options) {},
 
   /**
    * 生命周期函数--监听页面显示
@@ -33,8 +32,6 @@ Page({
       checkToken({
         token: app.globalData.userInfo.token
       }).then(res => {
-        console.log('检测登录token是否有效', res);
-        console.log('判断==》》', res && res.code == 2000);
         if (res && res.code == 2000) {
           login();
         }
@@ -42,16 +39,55 @@ Page({
     }
   },
 
+  onGotUserInfo: function(e) {
+    if (e.detail.errMsg == 'getUserInfo:ok') {
+      const userInfo = e.detail.userInfo;
+      app.globalData.userInfo = Object.assign(app.globalData.userInfo, userInfo);
+      let obj = {
+        avatarUrl: userInfo.avatarUrl, // 头像图片地址
+        city: userInfo.city, // 所在城市
+        nick: userInfo.nickName, // 昵称
+        province: userInfo.province, // 所在省份,
+        extJsonStr: {}, // 扩展数据
+        token: app.globalData.userInfo.token,
+      };
+      userModify(obj).then(res => {
+        this.setData({
+          userInfo: app.globalData.userInfo
+        });
+      });
+    }
+  },
+
+  /** 收藏 **/
+  goShoucan() {
+    if (this.data.userInfo.nickName) {
+      wx.navigateTo({
+        url: '../../list/list',
+      });
+    } else {
+      common.showModal('请授权登录。');
+    }
+  },
+
   /** 到店咨询 **/
   goLocation() {
-    wx.navigateTo({
-      url: '../../location/location',
-    });
+    if (this.data.userInfo.nickName) {
+      wx.navigateTo({
+        url: '../../location/location',
+      });
+    } else {
+      common.showModal('请授权登录。');
+    }
   },
 
   /** 联系客服 **/
   contact() {
-    common.showModal(app.globalData.dictData['companyName'] + ',欢迎到店咨询。');
+    if (this.data.userInfo.nickName) {
+      common.showModal(app.globalData.dictData['companyName'] + ',欢迎到店咨询。');
+    } else {
+      common.showModal('请授权登录。');
+    }
   },
 
   /** 关于我们 **/

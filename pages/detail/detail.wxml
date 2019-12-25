@@ -10,7 +10,7 @@
         </swiper-item>
       </swiper>
     </view>
-    <view class="product-warp">{{detailData.category.name}}</view>
+    <view class="product-warp">{{detailData.basicInfo.name}}</view>
     <l-list title="用料" wx:if="{{detailData.extJson}}">
       <block wx:for="{{detailData.extJson}}" wx:for-index="key" wx:for-item="value" wx:key="index">
         <l-cell label="{{key}}">

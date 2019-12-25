@@ -1,6 +1,4 @@
 {
-  "navigationBarTitleText": " ",
-  "navigationStyle":"custom",
   "usingComponents": {
     "l-search": "/components/l-search/index"
   }

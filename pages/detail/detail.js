@@ -6,7 +6,7 @@ const {
   collectCheck,
   collectDelete,
 } = require('../../utils/apiData.js');
-const common = require('../../utils/common.js');
+// const common = require('../../utils/common.js');
 const app = getApp();
 Page({
 
@@ -15,7 +15,7 @@ Page({
    */
   data: {
     isOk: false,
-    windowHeight:null,
+    windowHeight: null,
     id: null,
     goodsId: '', // 商品的goodsId
     isShoucan: false, // 当前商品是否收藏
@@ -49,8 +49,8 @@ Page({
         let that = this;
         WxParse.wxParse('article', 'html', content, that, 0);
 
-        res.extJson = JSON.stringify(res.extJson) == "{}" ? false: res.extJson;
-        console.log(res.extJson, "00000000000000000")
+        res.extJson = JSON.stringify(res.extJson) == '{}' ? false : res.extJson;
+        console.log(res.extJson, '00000000000000000');
         this.setData({
           isOk: true,
           windowHeight,

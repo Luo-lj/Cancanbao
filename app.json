@@ -11,7 +11,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "好美来装修",
+    "navigationBarTitleText": "餐餐饱食谱",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -25,7 +25,7 @@
         "selectedIconPath": "/images/tabBar/home-open.png"
       },
       {
-        "text": "装修",
+        "text": "分类",
         "pagePath": "pages/tabBar/fl/fl",
         "iconPath": "/images/tabBar/fenlei.png",
         "selectedIconPath": "/images/tabBar/fenlei-open.png"

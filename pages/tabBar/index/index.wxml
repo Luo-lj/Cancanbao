@@ -12,7 +12,7 @@
     <view class="most-content most-l" bindtap="designerTap">
       <view class="most-warp">
         <view class="most-text">最受欢迎</view>
-        <view class="most-text">人气设计师</view>
+        <view class="most-text">人气厨师</view>
         <view class="most-top">TOP 10</view>
       </view>
       <image class="most-img" src="/images/shejishi/huanyin-1.jpg"></image>
@@ -21,7 +21,7 @@
       <view class="most-active" bindtap="designerTap">
         <view class="most-warp-r">
           <view class="most-text">最受欢迎</view>
-          <view class="most-text">人气设计师</view>
+          <view class="most-text">人气厨师</view>
           <view class="most-top">TOP 10</view>
         </view>
         <image class="most-img" src="/images/shejishi/huanyin-2.jpg"></image>
@@ -29,7 +29,7 @@
       <view class="most-talent" bindtap="designerTap">
         <view class="most-warp-r">
           <view class="most-text">最受欢迎</view>
-          <view class="most-text">人气设计师</view>
+          <view class="most-text">人气厨师</view>
           <view class="most-top">TOP 10</view>
         </view>
         <image class="most-img" src="/images/shejishi/huanyin-3.jpg"></image>
@@ -39,8 +39,8 @@
 
   <view class="home-warp">
     <view class="home-head">
-      <view class="home-title">好家</view>
-      <view class="home-tips">猜你喜欢的风格</view>
+      <view class="home-title">精选好货</view>
+      <view class="home-tips">猜你喜欢的口味</view>
     </view>
     <view class="home-content">
       <view class="product-item" wx:for="{{recommendData}}" wx:key="index" data-id="{{item.id}}" bindtap="goDetail">
@@ -51,7 +51,7 @@
           <view class="item-title">{{item.name}}</view>
           <view class="home-tips">收藏</view>
         </view>
-        <view class="home-tips item-tips">现代简约 | 3室 | 120平方</view>
+        <view class="home-tips item-tips">{{item.characteristic}}</view>
       </view>
     </view>
   </view>

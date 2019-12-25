@@ -25,8 +25,8 @@ Page({
       this.setData({
         isOk: true,
         windowHeight: this.data.windowHeight,
-        id: 81671,
-        goodslist: app.globalData.goodsData.get(81671),
+        id: 83054,
+        goodslist: app.globalData.goodsData.get(83054),
         categoryAll: res,
       });
     });

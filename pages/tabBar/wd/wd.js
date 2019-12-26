@@ -84,7 +84,9 @@ Page({
   /** 联系客服 **/
   contact() {
     if (this.data.userInfo.nickName) {
-      common.showModal(app.globalData.dictData['companyName'] + ',欢迎到店咨询。');
+      wx.makePhoneCall({
+        phoneNumber: app.globalData.dictData['servicePhoneNumber'] //仅为示例，并非真实的电话号码
+      })
     } else {
       common.showModal('请授权登录。');
     }
@@ -95,4 +97,11 @@ Page({
     common.showModal(app.globalData.dictData['aboutUsContent'], app.globalData.dictData['aboutUsTitle']);
   },
 
+  // 转发
+  onShareAppMessage: function(res) {
+    return {
+      title: app.globalData.dictData['companyName'],
+      path: `/pages/tabBar/index/index`
+    };
+  },
 });

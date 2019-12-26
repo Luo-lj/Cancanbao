@@ -97,4 +97,12 @@ Page({
       });
     }
   },
+
+  // 转发
+  onShareAppMessage: function (res) {
+    return {
+      title: app.globalData.dictData['companyName'],
+      path: `/pages/tabBar/index/index`
+    };
+  },
 });

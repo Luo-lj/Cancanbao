@@ -1,6 +1,11 @@
 const ljRequest = require('./request.js');
 const config = require('./config.js');
 const app = getApp();
+
+/**
+ * 接口文档：https://api.it120.cc/doc.html
+ */
+
 /**
  * 用户注册
  * @param {Object} obj {code} 微信登录接口返回的 code
@@ -29,6 +34,13 @@ function checkToken(obj) {
  */
 function userModify(obj) {
   return ljRequest.request('/user/modify', obj, 'POST');
+}
+
+/**
+ * 查看用户详情
+ */
+function userDetail(obj) {
+  return ljRequest.request('/user/detail', obj, 'GET');
 }
 
 /**
@@ -88,15 +100,32 @@ function collectDelete(obj) {
 
 /**
  * 商品收藏列表
- * obj = {
- *    nameLike: 商品标题模糊搜索关键词
- *    page: 获取第几页数据
- *    pageSize: 每页显示多少数据
- *    token: 登录接口返回的token
- * }
  */
 function collectList(obj) {
   return ljRequest.request('/shop/goods/fav/list', obj, 'POST', 1);
+}
+
+/**
+ * 设置Json数据
+ */
+function setJson(obj) {
+  return ljRequest.request('/json/set', obj, 'POST', true, true, {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  });
+}
+
+/**
+ * Json数据列表
+ */
+function getJsonList(obj) {
+  return ljRequest.request('/json/list', obj, 'POST');
+}
+
+/**
+ * 删除Json数据
+ */
+function deleteJson(obj) {
+  return ljRequest.request('/json/delete', obj, 'POST');
 }
 
 /**
@@ -133,14 +162,18 @@ module.exports = {
   Login,
   checkToken,
   userModify,
+  userDetail,
   getBanner,
   categoryAll,
   goods,
   detail,
   collect,
   collectCheck,
-  collectDelete, 
+  collectDelete,
   collectList,
+  setJson, 
+  getJsonList,
+  deleteJson,
   distance,
   getValues,
 }

@@ -1,8 +1,51 @@
 <!--pages/tabBar/gwc/gwc.wxml-->
-<view class="waterfall">
-  <view wx:for="{{lookData}}" wx:key="{{item.id}}" class="item" data-id="{{item.id}}" bindtap="goDetail">
-    <view class="item-content">
-      <image src="{{item.pic}}" mode="widthFix"></image>
+
+
+
+
+
+<l-tabs activeKey="{{ activeKey }}" data-key="activeKey" bind:change="tabChange">
+  <l-tab tab="关注" key="1">
+    <!-- 新闻列表 -->
+    <view class="da-news" hover-class="clicking" bindtap="tonewsDetail">
+      <view class="da-news-top">
+        <image src="/images/map-icon/map-location.png"></image>
+        <view class="news-top-content">
+          <view class='da-sub-title'>第21届全国机器人锦标赛战幕 7月26日在肇庆高新区开启</view>
+          <view class='da-bottom'>
+            <view>
+              <text>来源：广东省茂名市信宜市合水镇</text>
+            </view>
+            <view>
+              <text>2019-08-15 16:51:43</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="da-news-top">
+        <image src="/images/map-icon/map-location.png"></image>
+        <view class="news-top-content">
+          <view class='da-sub-title'>第21届全国机器人锦标赛战幕 7月26日在肇庆高新区开启</view>
+          <view class='da-sub-sub-title da-tips'>
+            <view>
+              <text>来源：广东省茂名市信宜市合水镇</text>
+            </view>
+            <view>
+              <text>2019-08-15 16:51:43</text>
+            </view>
+          </view>
+        </view>
+      </view>
     </view>
-  </view>
-</view>
+  </l-tab>
+  <l-tab tab="发现" key="2">
+    <view class="waterfall">
+      <view wx:for="{{lookData}}" wx:key="{{item.id}}" class="item" data-id="{{item.id}}" bindtap="goDetail">
+        <view class="item-content">
+          <image src="{{item.pic}}" mode="widthFix"></image>
+        </view>
+      </view>
+    </view>
+  </l-tab>
+</l-tabs>

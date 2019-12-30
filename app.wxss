@@ -6,3 +6,27 @@ page {
   position: relative;
   box-sizing: border-box;
 }
+
+.clicking {
+  background-color: #eee;
+}
+
+.da-title {
+  font-size: 48rpx;
+  color: #323232;
+  font-weight: 800;
+}
+
+.da-sub-title {
+  font-size: 32rpx;
+  color: #000;
+  font-weight: 800;
+  line-height: 40rpx;
+}
+
+.da-sub-sub-title {
+  font-size: 28rpx;
+  color: #666;
+  font-weight: 400;
+  line-height: 40rpx;
+}

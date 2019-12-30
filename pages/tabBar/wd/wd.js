@@ -2,7 +2,11 @@
 const app = getApp();
 const {
   userModify,
-  checkToken
+  userDetail,
+  checkToken,
+  getJsonList,
+  setJson,
+  deleteJson
 } = require('../../../utils/apiData.js');
 const {
   login
@@ -20,7 +24,17 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {},
+  onLoad: function(options) {
+    userDetail({
+      token: app.globalData.userInfo.token
+    }).then(res => {
+      console.log("获取用户信息", res)
+    })
+    getJsonList().then(res => {
+      console.log("获取Json数据列表", res)
+    })
+    
+  },
 
   /**
    * 生命周期函数--监听页面显示
@@ -37,6 +51,15 @@ Page({
         }
       });
     }
+
+    setJson({
+      content: JSON.stringify({ title: '测试数据', content: '测试内容' }),
+      id: '',
+      refId: 8888,
+      type: '测试1',
+    }).then(res => {
+      console.log("设置成功", res)
+    })
   },
 
   onGotUserInfo: function(e) {
@@ -48,7 +71,15 @@ Page({
         city: userInfo.city, // 所在城市
         nick: userInfo.nickName, // 昵称
         province: userInfo.province, // 所在省份,
-        extJsonStr: {}, // 扩展数据
+        extJsonStr: {
+          aa: {
+            a: '111',
+            b: '222'
+          },
+          bb: {
+            aaa: '111'
+          },
+        }, // 扩展数据
         token: app.globalData.userInfo.token,
       };
       userModify(obj).then(res => {

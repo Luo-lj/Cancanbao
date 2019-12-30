@@ -1,4 +1,5 @@
 # 餐餐饱食谱
+主色调 ：ff2742；
 
 # 项目结构
 ├── components                                       // webpack配置文件

@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    activeKey:'1',
     lookData: [],
   },
 
@@ -16,6 +17,12 @@ Page({
     this.setData({
       lookData: app.globalData.goodsArr,
     });
+  },
+
+  tabChange(e) {
+    this.setData({
+      activeKey: e.detail.value.key
+    })
   },
 
   // 去详情页

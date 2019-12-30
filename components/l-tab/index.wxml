@@ -1,0 +1,4 @@
+<!--pages/g-tab-pane/index.wxml-->
+<view class="tab-pane" style="{{ tabPaneStyle }}">
+  <slot />
+</view>f

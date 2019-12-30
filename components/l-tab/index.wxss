@@ -1,0 +1,5 @@
+.tab-pane {
+  position: absolute;
+  width: 750rpx;
+  top: 0;
+}

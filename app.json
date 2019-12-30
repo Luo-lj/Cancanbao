@@ -2,8 +2,8 @@
   "pages": [
     "pages/tabBar/index/index",
     "pages/tabBar/fl/fl",
-    "pages/tabBar/look/look",
     "pages/tabBar/wd/wd",
+    "pages/tabBar/look/look",
     "pages/list/list",
     "pages/location/location",
     "pages/detail/detail"

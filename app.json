@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/tabBar/wd/wd",
     "pages/tabBar/index/index",
     "pages/tabBar/fl/fl",
-    "pages/tabBar/wd/wd",
     "pages/tabBar/look/look",
     "pages/list/list",
     "pages/location/location",

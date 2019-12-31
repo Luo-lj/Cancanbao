@@ -1,11 +1,16 @@
 <!--pages/tabBar/wd/wd.wxml-->
 <view class="container">
   <view class="userinfo" style="margin-bottom:50rpx;">
-    <view class="userinfo-warp">
+    <view class="userinfo-img">
       <open-data type="userAvatarUrl" class="userinfo-avatar"></open-data>
     </view>
-    <open-data type="userNickName" class="userinfo-nickname" wx:if="{{userInfo.nickName}}"></open-data>
-    <button open-type="getUserInfo" class="userinfo-nickname" bindgetuserinfo="onGotUserInfo" wx:else>授权登录</button>
+    <view class="userinfo-warp">
+      <view>关注 粉丝</view>
+      <view>
+        <button class="userinfo-btn" wx:if="{{userInfo}}">编辑资料</button>
+        <button open-type="getUserInfo" class="userinfo-btn" bindgetuserinfo="onGotUserInfo" wx:else>授权登录</button>
+      </view>
+    </view>
   </view>
 
 

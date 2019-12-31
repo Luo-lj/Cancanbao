@@ -1,38 +1,37 @@
 /* pages/tabBar/wd/wd.wxss */
-.container{
+
+.container {
   min-height: 100%;
   overflow: hidden;
   overflow-y: hidden;
 }
 
 .userinfo {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-  width: 750rpx;
+  display: flex;
+  padding: 20px;
 }
-.userinfo-warp{
-  	width: 160rpx;
-	height: 160rpx;
+
+.userinfo-img {
+  width: 160rpx;
+  height: 160rpx;
   border-radius: 50%;
   overflow: hidden;
   margin-top: 15px;
 }
-.userinfo-avatar {
-	width: 160rpx;
-	height: 160rpx;
-}
-.userinfo-nickname {
-  margin-top: 20rpx;
-  margin-bottom: 20rpx;
-  font-size: 14px;
+
+.userinfo-warp{
+  flex: 1;
 }
 
-.cube {
-  width: 200rpx;
-  height: 200rpx;
-  background-color: rgba(0, 0, 0, .3);
-  border-radius: 8rpx;
-  margin-right: 40rpx;
-  position: relative;
+button::after{
+  border:none;
 }
+
+.userinfo-warp .userinfo-btn{
+  height: 68rpx;
+  line-height: 68rpx;
+  border-radius: 50rpx;
+  border: 2px solid #eee!important;
+  background-color: none;
+}
+

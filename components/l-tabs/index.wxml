@@ -1,28 +1,28 @@
-<!-- pages/g-tabs/index.wxml -->
+<!-- pages/l-tabs/index.wxml -->
 <view class="tabs">
-  <view class="tabs__header {{secondStyle ? '' : 'tabs__header-border'}} tab-header-class" id="tab-header" style="position: {{position}}">
+  <view class="tabs-header {{secondStyle ? '' : 'tabs-header-border'}} tab-header-class" id="tab-header" style="position: {{position}}">
     <block wx:if="{{ scroll }}">
       <scroll-view scroll-x id="tabs-scroll" scroll-left="{{_scrollLeft}}" scroll-with-animation>
-        <view class="tabs__header--scroll">
+        <view class="tabs-header-scroll">
           <template is="tabsHeader" data="{{ _tabs, activeKey,secondStyle }}"></template>
-          <view class="tabs__slider" style="{{ _sliderStyle }}"></view>
+          <view class="tabs-slider" style="{{ _sliderStyle }}"></view>
         </view>
       </scroll-view>
     </block>
     <block wx:else>
       <template is="tabsHeader" data="{{ _tabs, activeKey,secondStyle }}"></template>
-      <view class="tabs__slider" style="{{ _sliderStyle }}"></view>
+      <view class="tabs-slider" style="{{ _sliderStyle }}"></view>
     </block>
   </view>
-  <view class="tabs__content" style="{{ _tabContentStyle }}">
+  <view class="tabs-content" style="{{ _tabContentStyle }}">
     <slot />
   </view>
 </view>
 <template name="tabsHeader">
   <block wx:for="{{ _tabs }}" wx:for-item="tabItem" wx:for-index="tabIdx" wx:key="{{ tabItem.key }}">
-    <view class="tabs__item__wrap" catch:tap="handleTabItemTab" data-key="{{ tabItem.key }}">
-      <view class="tabs__item {{secondStyle && tabIdx != (_tabs.length-1) ? 'tabs__item-border' : ''}} {{ activeKey === tabItem.key ? 'tabs__item--active': '' }}">
-        <view class="tabs__item-inline">{{ tabItem.tab }}</view>
+    <view class="tabs-item-wrap" catch:tap="handleTabItemTab" data-key="{{ tabItem.key }}">
+      <view class="tabs-item {{secondStyle && tabIdx != (_tabs.length-1) ? 'tabs-item-border' : ''}} {{ activeKey === tabItem.key ? 'tabs-item-active': '' }}">
+        <view class="tabs-item-inline">{{ tabItem.tab }}</view>
       </view>
     </view>
   </block>

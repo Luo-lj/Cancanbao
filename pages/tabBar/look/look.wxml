@@ -1,39 +1,15 @@
 <!--pages/tabBar/gwc/gwc.wxml-->
-
-
-
-
-
 <l-tabs activeKey="{{ activeKey }}" data-key="activeKey" bind:change="tabChange">
   <l-tab tab="关注" key="1">
     <!-- 新闻列表 -->
-    <view class="da-news" hover-class="clicking" bindtap="tonewsDetail">
-      <view class="da-news-top">
-        <image src="/images/map-icon/map-location.png"></image>
+    <view class="da-news" bindtap="tonewsDetail">
+      <view class="da-news-top" hover-class="clicking" wx:for="{{articleData}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="goNewsDetail">
+        <image mode="aspectFill" src="{{item.descript}}"></image>
         <view class="news-top-content">
-          <view class='da-sub-title'>第21届全国机器人锦标赛战幕 7月26日在肇庆高新区开启</view>
+          <view class='da-sub-title'>{{item.title}}</view>
           <view class='da-bottom'>
-            <view>
-              <text>来源：广东省茂名市信宜市合水镇</text>
-            </view>
-            <view>
-              <text>2019-08-15 16:51:43</text>
-            </view>
-          </view>
-        </view>
-      </view>
-
-      <view class="da-news-top">
-        <image src="/images/map-icon/map-location.png"></image>
-        <view class="news-top-content">
-          <view class='da-sub-title'>第21届全国机器人锦标赛战幕 7月26日在肇庆高新区开启</view>
-          <view class='da-sub-sub-title da-tips'>
-            <view>
-              <text>来源：广东省茂名市信宜市合水镇</text>
-            </view>
-            <view>
-              <text>2019-08-15 16:51:43</text>
-            </view>
+            <view>来源：{{item.income}}</view>
+            <view>{{item.dateAdd}}</view>
           </view>
         </view>
       </view>

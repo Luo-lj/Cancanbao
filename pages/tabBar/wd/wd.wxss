@@ -17,10 +17,20 @@
   border-radius: 50%;
   overflow: hidden;
   margin-top: 15px;
+  margin-right: 20px;
 }
 
 .userinfo-warp{
   flex: 1;
+}
+
+.userinfo-honor{
+  font-size: 24rpx;
+  text-align: center;
+  color: #666;
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
 }
 
 button::after{
@@ -28,10 +38,16 @@ button::after{
 }
 
 .userinfo-warp .userinfo-btn{
+  font-size: 28rpx;
   height: 68rpx;
   line-height: 68rpx;
   border-radius: 50rpx;
-  border: 2px solid #eee!important;
-  background-color: none;
+  background-color:rgb(255, 255, 255, 0);
+  border: 1rpx solid #999;
 }
 
+.personal-profile{
+  padding: 0 20px;
+  font-size: 24rpx;
+  color: #666;
+}

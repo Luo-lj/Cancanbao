@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "l-cell": "/components/l-cell/index"
+    "l-cell": "/components/l-cell/index",
+    "l-icon": "/components/l-icon/index"
   }
 }

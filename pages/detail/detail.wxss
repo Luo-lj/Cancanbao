@@ -1,5 +1,3 @@
-@import "/components/wxParse/wxParse.wxss";
-
 .swiper-container, swiper, .slide-image {
   width: 100%;
   height: 550rpx;
@@ -17,28 +15,35 @@
 .btn-warp {
   display: flex;
   padding: 0 20px;
-  border-top:1px solid #d5d5d5;
+  border-top: 1px solid #d5d5d5;
 }
 
 .btn-warp .btn-l {
-  flex:1;
+  flex: 1;
   padding-top: 5px;
   text-align: center;
 }
 
 .btn-warp .btn-r {
-  flex:1;
+  flex: 1;
   padding-top: 5px;
   text-align: center;
   position: relative;
 }
 
-.btn-warp .btn-r button{
+.btn-warp .btn-r button {
   opacity: 0;
   position: absolute;
   width: 100%;
 }
 
-.btn-warp text{
+.btn-warp text {
   padding-left: 10px;
+}
+
+.detail-content {
+  color: #666;
+  font-size: 32rpx;
+  line-height: 32px;
+  padding: 0 20px;
 }

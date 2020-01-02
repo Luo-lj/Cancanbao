@@ -1,0 +1,15 @@
+<!--pages/newsDetail/newsDetail.wxml-->
+<view class="da-container">
+  <view class="da-news">
+    <view class='da-content'>
+      <view class='da-title'>{{news.title}}</view>
+      <view class='da-bottom'>
+        <text style='padding-right:40rpx;'>来源：{{news.income}}</text>
+        <text>{{news.dateAdd}}</text>
+      </view>
+    </view>
+    <view class="da-news-detail">
+      <rich-text nodes="{{news.content}}"></rich-text>
+    </view>
+  </view>
+</view>

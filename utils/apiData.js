@@ -106,6 +106,20 @@ function collectList(obj) {
 }
 
 /**
+ * 文章列表
+ */
+function newsList(obj) {
+  return ljRequest.request('/cms/news/list', obj, 'POST');
+}
+
+/**
+ * 获取文章详情
+ */
+function newsDetail(obj) {
+  return ljRequest.request('/cms/news/detail', obj, 'GET');
+}
+
+/**
  * 设置Json数据
  */
 function setJson(obj) {
@@ -171,6 +185,8 @@ module.exports = {
   collectCheck,
   collectDelete,
   collectList,
+  newsList,
+  newsDetail,
   setJson, 
   getJsonList,
   deleteJson,

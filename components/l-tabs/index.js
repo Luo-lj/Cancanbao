@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, "-esModule", {
   value: true
 });
 const Event = require('../utils/events.js');
@@ -55,11 +55,11 @@ Component({
   methods: {
     initListener() {
       // 重新计算 style
-      Event.addEventListener('g-tabs__resetStyle', () => {
+      Event.addEventListener('g-tabs-resetStyle', () => {
         this.resetStyle();
       }, this);
       // 初始化
-      Event.addEventListener('g-tabs__init', () => {
+      Event.addEventListener('g-tabs-init', () => {
         this.initTabs()
           .then(() => {
             return this.saveInitTabItems();
@@ -70,7 +70,7 @@ Component({
       });
     },
     removeListener() {
-      Event.removeSingleEventListener('g-tabs__resetStyle', () => {
+      Event.removeSingleEventListener('g-tabs-resetStyle', () => {
         this.resetStyle();
       }, this);
     },
@@ -113,7 +113,7 @@ Component({
     saveInitTabItems() {
       return new Promise((resolve, reject) => {
         const query = this.createSelectorQuery();
-        query.selectAll('.tabs__item__wrap')
+        query.selectAll('.tabs-item-wrap')
           .boundingClientRect(nodes => {
             nodes.forEach((rect, index) => {
               this.data._tabs[index].rect = rect;
@@ -165,7 +165,7 @@ Component({
     getCurrentTabItem() {
       return new Promise((resolve, reject) => {
         const query = this.createSelectorQuery();
-        query.selectAll('.tabs__item-inline').fields({
+        query.selectAll('.tabs-item-inline').fields({
           size: true,
           rect: true,
           scrollOffset: true
@@ -247,7 +247,7 @@ Component({
     calcTabHeaderLeft() {
       return new Promise((resolve) => {
         const query = this.createSelectorQuery();
-        query.select('.tabs__header').fields({
+        query.select('.tabs-header').fields({
           size: true,
           rect: true,
           scrollOffset: true

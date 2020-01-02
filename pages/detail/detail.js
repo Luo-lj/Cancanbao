@@ -1,5 +1,4 @@
 // pages/detail/detail.js
-const WxParse = require('../../components/wxParse/wxParse.js');
 const {
   detail,
   collect,
@@ -45,9 +44,6 @@ Page({
         } else {
           this.data.isShoucan = true;
         }
-
-        let that = this;
-        WxParse.wxParse('article', 'html', content, that, 0);
 
         res.extJson = JSON.stringify(res.extJson) == '{}' ? false : res.extJson;
         this.setData({

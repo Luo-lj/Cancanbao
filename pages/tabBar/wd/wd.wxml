@@ -1,20 +1,36 @@
 <!--pages/tabBar/wd/wd.wxml-->
 <view class="container">
-  <view class="userinfo" style="margin-bottom:50rpx;">
+  <view class="userinfo">
     <view class="userinfo-img">
       <open-data type="userAvatarUrl" class="userinfo-avatar"></open-data>
     </view>
     <view class="userinfo-warp">
-      <view>关注 粉丝</view>
+      <view class="userinfo-honor">
+        <view class="item">
+          <view>0</view>
+          <view>关注</view>
+        </view>
+        <view class="item">
+          <view>0</view>
+          <view>粉丝</view>
+        </view>
+        <view class="item">
+          <view>0</view>
+          <view>获赞</view>
+        </view>
+      </view>
       <view>
-        <button class="userinfo-btn" wx:if="{{userInfo}}">编辑资料</button>
+        <view wx:if="{{userInfo.nickName}}">{{userInfo.nickName}}</view>
+        <!-- <button class="userinfo-btn" wx:if="{{userInfo.nickName}}">编辑资料</button> -->
         <button open-type="getUserInfo" class="userinfo-btn" bindgetuserinfo="onGotUserInfo" wx:else>授权登录</button>
       </view>
     </view>
   </view>
+  <view class="personal-profile">填写个人简介让大家更好地认识你，点击这里添加+</view>
 
 
   <view>
+    <l-cell label="我的笔记" access bind:tap="goShoucan"></l-cell>
     <l-cell label="我的收藏" access bind:tap="goShoucan"></l-cell>
     <l-cell label="到店咨询" access bind:tap="goLocation"></l-cell>
     <l-cell label="联系我们" access bind:tap="contact"></l-cell>

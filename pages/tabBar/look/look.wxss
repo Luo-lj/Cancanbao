@@ -50,3 +50,9 @@
 .da-tips{
   padding-top: 40rpx;
 }
+
+.da-bottom{
+  color: #999;
+  font-size: 32rpx;
+  padding-top: 20rpx;
+}

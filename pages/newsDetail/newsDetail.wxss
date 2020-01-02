@@ -22,6 +22,11 @@
   line-height: 60rpx;
 }
 
+.da-news-detail img{
+  width: 100%;
+
+}
+
 .ql-container{
   height: auto;
   min-height: auto;

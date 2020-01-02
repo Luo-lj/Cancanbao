@@ -51,3 +51,7 @@ button::after{
   font-size: 24rpx;
   color: #666;
 }
+
+.user-name{
+  text-align: center;
+}

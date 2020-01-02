@@ -20,6 +20,7 @@
       <view wx:for="{{lookData}}" wx:key="{{item.id}}" class="item" data-id="{{item.id}}" bindtap="goDetail">
         <view class="item-content">
           <image src="{{item.pic}}" mode="widthFix"></image>
+          <view class="item-name">{{item.name}}</view>
         </view>
       </view>
     </view>

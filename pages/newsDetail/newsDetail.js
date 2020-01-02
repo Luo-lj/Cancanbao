@@ -9,7 +9,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    news:null
+    news:null,
+    content:''
   },
 
   /**
@@ -19,7 +20,8 @@ Page({
     newsDetail({id:options.id}).then(res => {
       console.log("文章详情", res)
       this.setData({
-        news:res
+        news:res,
+        content: res.content.replace(/\<img/g, '<img style="width:100%;height:auto;display:block;"')
       })
     })
   },

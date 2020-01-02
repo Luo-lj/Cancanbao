@@ -24,13 +24,12 @@
 }
 
 .da-news{
-  padding: 30rpx;
+  padding: 0 40rpx;
 }
 
  .da-news-top {
   display: flex;
-  padding-top: 60rpx;
-  padding-bottom: 50rpx;
+  padding: 40rpx 0;
   border-bottom: 1rpx solid #f1f1f1;
 }
 
@@ -55,4 +54,8 @@
   color: #999;
   font-size: 32rpx;
   padding-top: 20rpx;
+}
+
+.item-name{
+  text-align: center;
 }

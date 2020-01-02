@@ -9,7 +9,7 @@
       </view>
     </view>
     <view class="da-news-detail">
-      <rich-text nodes="{{news.content}}"></rich-text>
+      <rich-text nodes="{{content}}"></rich-text>
     </view>
   </view>
 </view>

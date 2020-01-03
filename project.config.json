@@ -63,8 +63,8 @@
 				},
 				{
 					"id": 1,
-					"name": "pages/detail/detail",
-					"pathName": "pages/detail/detail",
+					"name": "pages/joke/joke",
+					"pathName": "pages/joke/joke",
 					"query": "id=243110",
 					"scene": null
 				}

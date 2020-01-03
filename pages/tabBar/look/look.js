@@ -28,7 +28,25 @@ Page({
       Event.dispatch('g-tabs-resetStyle');
     })
 
+    this.ceShiApi();
   },
+
+  ceShiApi() {
+    wx.request({
+      url: 'https://v.juhe.cn/toutiao/index', //仅为示例，并非真实的接口地址
+      data: {
+        type:'top',
+        key: '478c162f513be6566d51e800d15f8076'
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res.data)
+      }
+    })
+  },
+
   //tab切换
   tabChange(e) {
     this.setData({

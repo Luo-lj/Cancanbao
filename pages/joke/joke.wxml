@@ -1,0 +1,10 @@
+<!--pages/joke/joke.wxml-->
+<view class="joke-warp" style="height:{{windowHeight - 81}}px;">
+
+  <text class="joke-content">{{content}}</text>
+</view>
+
+<view class="btn-warp">
+  <view class="btn-l" bindtap="upItem">上一条</view>
+  <view class="btn-r" bindtap="nextItem">下一条</view>
+</view>

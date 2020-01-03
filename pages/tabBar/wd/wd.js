@@ -33,7 +33,7 @@ Page({
     getJsonList().then(res => {
       console.log("获取Json数据列表", res)
     })
-    
+
   },
 
   /**
@@ -53,7 +53,10 @@ Page({
     }
 
     setJson({
-      content: JSON.stringify({ title: '测试数据', content: '测试内容' }),
+      content: JSON.stringify({
+        title: '测试数据',
+        content: '测试内容'
+      }),
       id: '',
       refId: 8888,
       type: '测试1',
@@ -99,6 +102,13 @@ Page({
     } else {
       common.showModal('请授权登录。');
     }
+  },
+
+  //笑话大全
+  goJoke() {
+    wx.navigateTo({
+      url: '../../joke/joke',
+    })
   },
 
   /** 到店咨询 **/

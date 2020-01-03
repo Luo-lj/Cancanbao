@@ -46,6 +46,7 @@ Page({
         }
 
         res.extJson = JSON.stringify(res.extJson) == '{}' ? false : res.extJson;
+        res.content = res.content.replace(/\<img/g, '<img style="margin:0 auto;display:block;"')
         this.setData({
           isOk: true,
           windowHeight,

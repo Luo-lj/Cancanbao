@@ -8,7 +8,8 @@
     "pages/location/location",
     "pages/detail/detail",
     "pages/newsDetail/newsDetail",
-    "pages/userinfo/userinfo"
+    "pages/userinfo/userinfo",
+    "pages/joke/joke"
   ],
   "window": {
     "backgroundTextStyle": "light",

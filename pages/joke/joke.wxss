@@ -1,0 +1,25 @@
+/* pages/joke/joke.wxss */
+
+.joke-warp {
+  font-size: 32rpx;
+  text-align: left;
+  padding: 20px;
+}
+
+.btn-warp {
+  display: flex;
+  padding: 0 20px;
+  border-top: 1px solid #d5d5d5;
+  line-height: 40px;
+}
+
+.btn-warp .btn-l {
+  flex: 1;
+  text-align: center;
+}
+
+.btn-warp .btn-r {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}

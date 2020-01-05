@@ -47,3 +47,20 @@
   line-height: 32px;
   padding: 0 20px;
 }
+
+.component-class{
+  height: 232px;
+  overflow: hidden;
+}
+
+.cailiao{
+  position: relative;
+}
+
+.open-tips{
+  text-align: center;
+  color: #666;
+  line-height: 40px;
+  font-size: 32rpx;
+  bottom: 0px;
+}

@@ -4,7 +4,6 @@ const {
   userModify,
   userDetail,
   checkToken,
-  getJsonList,
   setJson,
   deleteJson
 } = require('../../../utils/apiData.js');
@@ -29,10 +28,14 @@ Page({
       token: app.globalData.userInfo.token
     }).then(res => {
       console.log("获取用户信息", res)
+      this.setData({
+        userInfo: {
+          ...res.base,
+          nickName: res.base.nick
+        },
+      })
     })
-    getJsonList().then(res => {
-      console.log("获取Json数据列表", res)
-    })
+   
 
   },
 
@@ -52,17 +55,17 @@ Page({
       });
     }
 
-    setJson({
-      content: JSON.stringify({
-        title: '测试数据',
-        content: '测试内容'
-      }),
-      id: '',
-      refId: 8888,
-      type: '测试1',
-    }).then(res => {
-      console.log("设置成功", res)
-    })
+    // setJson({
+    //   content: JSON.stringify({
+    //     title: '测试数据',
+    //     content: '测试内容'
+    //   }),
+    //   id: '',
+    //   refId: 8888,
+    //   type: '测试1',
+    // }).then(res => {
+    //   console.log("设置成功", res)
+    // })
   },
 
   onGotUserInfo: function(e) {

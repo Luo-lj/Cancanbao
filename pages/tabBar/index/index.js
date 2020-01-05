@@ -3,7 +3,8 @@ const {
   checkToken,
   getBanner,
   goods,
-  getValues
+  getValues,
+  getJsonList,
 } = require('../../../utils/apiData.js');
 const {
   login
@@ -32,10 +33,11 @@ Page({
   initData() {
     Promise.all([getBanner(), goods(), goods({
       recommendStatus: 1
-    }), getValues()]).then(res => {
+    }), getValues(), getJsonList()]).then(res => {
       app.globalData.goodsData = this.getData(res[1]);
       app.globalData.goodsArr = res[1]; // 所有商品列表
       app.globalData.recommendData = res[2]; // 推荐商品列表
+      app.globalData.jsonList = res[4]; // 推荐商品列表
       console.log('Promise.all ===>>>', res);
       console.log('所有商品列表', app.globalData.goodsData);
       this.setData({
@@ -99,7 +101,7 @@ Page({
   },
 
   // 转发
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     return {
       title: app.globalData.dictData['companyName'],
       path: `/pages/tabBar/index/index`

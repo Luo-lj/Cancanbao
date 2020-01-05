@@ -13,17 +13,20 @@ Page({
     activeKey: '1',
     articleData: [], //文章列表
     lookData: [],
+    epicureData: [], //美食家数据
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    console.log(app.globalData.jsonList)
     newsList().then(res => {
       console.log("获取文章列表", res)
       this.setData({
         articleData: res,
         lookData: app.globalData.goodsArr,
+        epicureData: app.globalData.jsonList[1].jsonData.data,
       });
       Event.dispatch('g-tabs-resetStyle');
     })
@@ -35,7 +38,7 @@ Page({
     wx.request({
       url: 'https://v.juhe.cn/toutiao/index', //仅为示例，并非真实的接口地址
       data: {
-        type:'top',
+        type: 'top',
         key: '478c162f513be6566d51e800d15f8076'
       },
       header: {
@@ -55,7 +58,7 @@ Page({
   },
 
   //去文章详情
-  goNewsDetail(e){
+  goNewsDetail(e) {
     wx.navigateTo({
       url: `../../newsDetail/newsDetail?id=${e.currentTarget.dataset.id}`,
     });

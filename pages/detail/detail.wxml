@@ -9,18 +9,22 @@
       </swiper>
     </view>
     <view class="product-warp">{{detailData.basicInfo.name}}</view>
-    <l-list title="用料" wx:if="{{detailData.extJson}}">
-      <block wx:for="{{detailData.extJson}}" wx:for-index="key" wx:for-item="value" wx:key="index">
-        <l-cell label="{{key}}">
-          <view slot="append">{{value}}</view>
-        </l-cell>
-      </block>
-    </l-list>
+    <view class="cailiao">
+      <l-list title="用料" wx:if="{{detailData.extJson}}" component-class="{{!isShow?'component-class':''}}">
+        <block wx:for="{{detailData.extJson}}" wx:for-index="key" wx:for-item="value" wx:key="index">
+          <l-cell label="{{key}}">
+            <view slot="append">{{value}}</view>
+          </l-cell>
+        </block>
+      </l-list>
+      <view class="open-tips" bindtap="openTips">{{isShow?'收起部分材料':'展开全部材料'}}</view>
+    </view>
+
 
     <l-list title="步骤" wx:if="{{detailData.content}}">
-     <view class="detail-content">
-      <rich-text nodes="{{detailData.content}}"></rich-text>
-    </view>
+      <view class="detail-content">
+        <rich-text nodes="{{detailData.content}}"></rich-text>
+      </view>
     </l-list>
   </view>
 

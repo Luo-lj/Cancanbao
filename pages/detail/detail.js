@@ -14,6 +14,7 @@ Page({
    */
   data: {
     isOk: false,
+    isShow:false,//是否展示全部材料
     windowHeight: null,
     id: null,
     goodsId: '', // 商品的goodsId
@@ -59,6 +60,13 @@ Page({
       });
 
     });
+  },
+
+  //是否展示全部材料
+  openTips(){
+    this.setData({
+      isShow: !this.data.isShow,
+    })
   },
 
   /**

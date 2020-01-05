@@ -16,13 +16,31 @@
     </view>
   </l-tab>
   <l-tab tab="发现" key="2">
-    <view class="waterfall">
-      <view wx:for="{{lookData}}" wx:key="{{item.id}}" class="item" data-id="{{item.id}}" bindtap="goDetail">
-        <view class="item-content">
-          <image src="{{item.pic}}" mode="widthFix"></image>
-          <view class="item-name">{{item.name}}</view>
+
+    <l-list title="">
+      <l-cell wx:for="{{epicureData}}" wx:key="{{item.epicureId}}">
+        <view slot="prepend" class="prepend-warp">
+          <view class="user-image">
+            <image mode="aspectFill" src="{{item.userImg}}"></image>
+          </view>
+          <view class="user-info">
+            <view class="title">{{item.userName}}</view>
+            <view class="tips">作品 {{item.works}} 粉丝 {{item.Fans}}</view>
+          </view>
+        </view>
+        <view slot="append" class="append">关注</view>
+      </l-cell>
+    </l-list>
+
+    <l-list title="推荐美食">
+      <view class="waterfall">
+        <view wx:for="{{lookData}}" wx:key="{{item.id}}" class="item" data-id="{{item.id}}" bindtap="goDetail">
+          <view class="item-content">
+            <image src="{{item.pic}}" mode="widthFix"></image>
+            <view class="item-name">{{item.name}}</view>
+          </view>
         </view>
       </view>
-    </view>
+    </l-list>
   </l-tab>
 </l-tabs>

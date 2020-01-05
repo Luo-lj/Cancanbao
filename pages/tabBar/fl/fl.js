@@ -22,11 +22,12 @@ Page({
   onLoad: function(options) {
     this.data.windowHeight = wx.getSystemInfoSync().windowHeight; // 获取屏幕的高度
     categoryAll().then(res => {
+      const id = res[0].id;
       this.setData({
         isOk: true,
         windowHeight: this.data.windowHeight,
-        id: 83054,
-        goodslist: app.globalData.goodsData.get(83054),
+        id,
+        goodslist: app.globalData.goodsData.get(id),
         categoryAll: res,
       });
     });
@@ -54,7 +55,7 @@ Page({
   },
 
   // 转发
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     return {
       title: app.globalData.dictData['companyName'],
       path: `/pages/tabBar/index/index`

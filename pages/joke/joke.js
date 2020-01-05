@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isOk:false,
     windowHeight: '', //获取屏幕的高度
     index: 0, //第几条
     page:0,
@@ -18,6 +19,7 @@ Page({
   onLoad: function(options) {
     this.getJokeData().then(() => {
       this.setData({
+        isOk:true,
         windowHeight: wx.getSystemInfoSync().windowHeight, // 获取屏幕的高度
         content: this.data.jokeData[this.data.index].content,
       })

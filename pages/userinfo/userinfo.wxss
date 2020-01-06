@@ -1,1 +1,5 @@
 /* pages/userinfo/userinfo.wxss */
+.text-title{
+  color: #666;
+  font-size: 16px;
+}

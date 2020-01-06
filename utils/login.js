@@ -18,7 +18,10 @@ function login() {
             if (res.code == 10000) {
               userRegister();
             } else {
-              app.globalData.userInfo = res;
+              app.globalData.userInfo = {
+                ...app.globalData.userInfo,
+                ...res
+              };
               resolve()
             }
           })

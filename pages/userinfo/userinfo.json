@@ -1,7 +1,8 @@
 {
   "usingComponents": {
-    "l-icon": "/components/l-icon/index",
-    "l-list": "/components/l-list/index",
-    "l-cell": "/components/l-cell/index"
+    "mp-toptips": "/components/WeUi/toptips/toptips",
+    "mp-cells": "/components/WeUi/cells/cells",
+    "mp-cell": "/components/WeUi/cell/cell",
+    "mp-form": "/components/WeUi/form/form"
   }
 }

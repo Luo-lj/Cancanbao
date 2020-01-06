@@ -1,1 +1,21 @@
 <!--pages/userinfo/userinfo.wxml-->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<mp-form id="form" rules="{{rules}}" models="{{formData}}">
+  <mp-cells title="">
+    <mp-cell show-error prop="nick" title="昵称" ext-class="">
+      <input bindinput="formInputChange" data-id="nick" value="{{formData.nick}}" class="weui-input" placeholder="请输入昵称" />
+    </mp-cell>
+    <mp-cell show-error prop="province" title="省份" ext-class="">
+      <input bindinput="formInputChange" data-id="province" value="{{formData.province}}" class="weui-input" placeholder="请输入所在省份" />
+    </mp-cell>
+    <mp-cell show-error prop="city" title="城市" ext-class="">
+      <input bindinput="formInputChange" data-id="city" value="{{formData.city}}" class="weui-input" placeholder="请输入所在城市" />
+    </mp-cell>
+    <mp-cell show-error prop="profile" title="" ext-class="">
+      <textarea bindinput="formInputChange" class="weui-textarea" data-id="profile" value="{{formData.profile}}" placeholder="请输入个人简介" style="height: 3.3em" />
+    </mp-cell>
+  </mp-cells>
+</mp-form>
+<view class="weui-btn-area">
+  <button class="weui-btn" type="primary" bindtap="submitForm">确定</button>
+</view>

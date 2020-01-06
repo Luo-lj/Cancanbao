@@ -52,7 +52,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
@@ -64,7 +64,7 @@
 				{
 					"id": 1,
 					"name": "pages/joke/joke",
-					"pathName": "pages/joke/joke",
+					"pathName": "pages/userinfo/userinfo",
 					"query": "id=243110",
 					"scene": null
 				}

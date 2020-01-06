@@ -27,12 +27,11 @@ Page({
     userDetail({
       token: app.globalData.userInfo.token
     }).then(res => {
-      console.log('获取用户信息', res);
+      console.log('获取用户信息', res, app.globalData.userInfo);
+      app.globalData.userInfo.ext = res.ext;
+      app.globalData.userInfo.base = res.base;
       this.setData({
-        userInfo: {
-          ...res.base,
-          nickName: res.base.nick
-        },
+        userInfo: app.globalData.userInfo,
       });
     });
   },
@@ -41,7 +40,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    if (!app.globalData.userInfo) {
+    if (!app.globalData.userInfo.token) {
       login();
     } else {
       checkToken({
@@ -52,6 +51,9 @@ Page({
         }
       });
     }
+    this.setData({
+      userInfo: app.globalData.userInfo,
+    });
 
     // setJson({
     //   content: JSON.stringify({
@@ -92,6 +94,13 @@ Page({
         });
       });
     }
+  },
+
+  //编辑资料
+  goUserInfo() {
+    wx.navigateTo({
+      url: '../../userinfo/userinfo',
+    })
   },
 
   /** 收藏 **/

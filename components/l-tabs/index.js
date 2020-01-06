@@ -1,5 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "-esModule", {
+
+Object.defineProperty(exports, '-esModule', {
   value: true
 });
 const Event = require('../utils/events.js');
@@ -137,10 +137,8 @@ Component({
           index,
           scroll
         }) => {
-          if (node)
-            this.calcSliderStyle(node, scroll);
-          if (-1 !== index)
-            this.setTapPaneStyle(index);
+          if (node) this.calcSliderStyle(node, scroll);
+          if (-1 !== index) this.setTapPaneStyle(index);
         });
     },
     /**

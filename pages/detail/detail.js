@@ -14,7 +14,7 @@ Page({
    */
   data: {
     isOk: false,
-    isShow:false,//是否展示全部材料
+    isShow: false, // 是否展示全部材料
     windowHeight: null,
     id: null,
     goodsId: '', // 商品的goodsId
@@ -47,7 +47,7 @@ Page({
         }
 
         res.extJson = JSON.stringify(res.extJson) == '{}' ? false : res.extJson;
-        res.content = res.content.replace(/\<img/g, '<img style="margin:0 auto;display:block;"')
+        res.content = res.content.replace(/\<img/g, '<img style="margin:0 auto;display:block;"');
         this.setData({
           isOk: true,
           windowHeight,
@@ -62,11 +62,11 @@ Page({
     });
   },
 
-  //是否展示全部材料
-  openTips(){
+  // 是否展示全部材料
+  openTips() {
     this.setData({
       isShow: !this.data.isShow,
-    })
+    });
   },
 
   /**

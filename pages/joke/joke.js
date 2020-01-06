@@ -5,11 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isOk:false,
-    windowHeight: '', //获取屏幕的高度
-    index: 0, //第几条
-    page:0,
-    content: '', //内容
+    isOk: false,
+    windowHeight: '', // 获取屏幕的高度
+    index: 0, // 第几条
+    page: 0,
+    content: '', // 内容
     jokeData: [],
   },
 
@@ -19,20 +19,20 @@ Page({
   onLoad: function(options) {
     this.getJokeData().then(() => {
       this.setData({
-        isOk:true,
+        isOk: true,
         windowHeight: wx.getSystemInfoSync().windowHeight, // 获取屏幕的高度
         content: this.data.jokeData[this.data.index].content,
-      })
-    })
+      });
+    });
   },
 
-  //获取笑话大全
+  // 获取笑话大全
   getJokeData() {
     return new Promise(resolve => {
       const _this = this;
       _this.data.page++;
       wx.request({
-        url: 'https://v.juhe.cn/joke/content/list.php', //仅为示例，并非真实的接口地址
+        url: 'https://v.juhe.cn/joke/content/list.php', // 仅为示例，并非真实的接口地址
         data: {
           sort: 'desc',
           page: _this.data.page,
@@ -43,41 +43,41 @@ Page({
           'content-type': 'application/json' // 默认值
         },
         success(res) {
-          console.log("===>>>",res)
+          console.log('===>>>', res);
           _this.data.jokeData = _this.data.jokeData.concat(res.data.result.data);
-          resolve()
+          resolve();
         }
-      })
-    })
+      });
+    });
   },
 
-  //上一条
+  // 上一条
   upItem() {
     this.data.index--;
-    console.log("上一条", this.data.index)
+    console.log('上一条', this.data.index);
     if (this.data.index >= 0) {
       this.setData({
         content: this.data.jokeData[this.data.index].content,
-      })
-    }else{
+      });
+    } else {
       this.data.index = 0;
     }
   },
 
-  //下一条
+  // 下一条
   nextItem() {
     this.data.index++;
-    console.log("===>>>下一条", this.data.index, this.data.jokeData.length - 1)
+    console.log('===>>>下一条', this.data.index, this.data.jokeData.length - 1);
     if (this.data.index > this.data.jokeData.length - 1) {
       this.getJokeData().then(() => {
         this.setData({
           content: this.data.jokeData[this.data.index].content,
-        })
-      })
+        });
+      });
     } else {
       this.setData({
         content: this.data.jokeData[this.data.index].content,
-      })
+      });
     }
   },
 
@@ -88,4 +88,4 @@ Page({
   onShareAppMessage: function() {
 
   }
-})
+});

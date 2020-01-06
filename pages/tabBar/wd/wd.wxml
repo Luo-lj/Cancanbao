@@ -21,8 +21,8 @@
       </view>
       <view>
         <!-- <view class="user-name" wx:if="{{userInfo.nickName}}">{{userInfo.nickName}}</view> -->
-        <button class="userinfo-btn" wx:if="{{userInfo.nickName}}">编辑资料</button>
-        <button open-type="getUserInfo" class="userinfo-btn" bindgetuserinfo="onGotUserInfo" wx:else>授权登录</button>
+        <!-- <button class="userinfo-btn" wx:if="{{userInfo.nickName}}">编辑资料</button> -->
+        <button open-type="getUserInfo" class="userinfo-btn" bindgetuserinfo="onGotUserInfo">授权登录</button>
       </view>
     </view>
   </view>

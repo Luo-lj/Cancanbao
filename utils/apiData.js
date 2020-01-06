@@ -120,29 +120,6 @@ function newsDetail(obj) {
 }
 
 /**
- * 设置Json数据
- */
-function setJson(obj) {
-  return ljRequest.request('/json/set', obj, 'POST', true, true, {
-    'Content-Type': 'application/x-www-form-urlencoded'
-  });
-}
-
-/**
- * Json数据列表
- */
-function getJsonList(obj) {
-  return ljRequest.request('/json/list', obj, 'POST');
-}
-
-/**
- * 删除Json数据
- */
-function deleteJson(obj) {
-  return ljRequest.request('/json/delete', obj, 'POST');
-}
-
-/**
  * 计算两地距离
  * obj = {lat1: 纬度1, lat2: 纬度2, lng1:经度1, lng2:经度2, token: 登录接口返回的token}
  */
@@ -161,7 +138,7 @@ function getValues() {
   }
   return new Promise(resolev => {
     ljRequest.request('/config/values', keys, 'GET').then(res => {
-      let list = {}
+      let list = {};
       for (let item of res) {
         list[item.key] = item.value;
       }
@@ -169,6 +146,39 @@ function getValues() {
       resolev(true)
     })
   })
+}
+
+/**
+ * Json数据列表
+ */
+function getJsonList(obj) {
+  return new Promise(resolev => {
+    ljRequest.request('/json/list', obj, 'POST').then(res => {
+      let list = {};
+      for (let item of res) {
+        list[item.refId] = item.jsonData.data;
+      }
+      app.globalData.jsonList = list;
+      console.log("获取所有的Json列表===>>>", res, list)
+      resolev(true)
+    })
+  }) 
+}
+
+/**
+ * 设置Json数据
+ */
+function setJson(obj) {
+  return ljRequest.request('/json/set', obj, 'POST', true, true, {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  });
+}
+
+/**
+ * 删除Json数据
+ */
+function deleteJson(obj) {
+  return ljRequest.request('/json/delete', obj, 'POST');
 }
 
 module.exports = {
@@ -187,9 +197,9 @@ module.exports = {
   collectList,
   newsList,
   newsDetail,
-  setJson, 
-  getJsonList,
-  deleteJson,
   distance,
   getValues,
+  getJsonList,
+  setJson, 
+  deleteJson,
 }

@@ -27,16 +27,14 @@ Page({
     userDetail({
       token: app.globalData.userInfo.token
     }).then(res => {
-      console.log("获取用户信息", res)
+      console.log('获取用户信息', res);
       this.setData({
         userInfo: {
           ...res.base,
           nickName: res.base.nick
         },
-      })
-    })
-   
-
+      });
+    });
   },
 
   /**
@@ -77,7 +75,7 @@ Page({
         city: userInfo.city, // 所在城市
         nick: userInfo.nickName, // 昵称
         province: userInfo.province, // 所在省份,
-        extJsonStr: {
+        extJsonStr: JSON.stringify({
           aa: {
             a: '111',
             b: '222'
@@ -85,7 +83,7 @@ Page({
           bb: {
             aaa: '111'
           },
-        }, // 扩展数据
+        }), // 扩展数据
         token: app.globalData.userInfo.token,
       };
       userModify(obj).then(res => {
@@ -107,11 +105,11 @@ Page({
     }
   },
 
-  //笑话大全
+  // 笑话大全
   goJoke() {
     wx.navigateTo({
       url: '../../joke/joke',
-    })
+    });
   },
 
   /** 到店咨询 **/
@@ -129,8 +127,8 @@ Page({
   contact() {
     if (this.data.userInfo.nickName) {
       wx.makePhoneCall({
-        phoneNumber: app.globalData.dictData['servicePhoneNumber'] //仅为示例，并非真实的电话号码
-      })
+        phoneNumber: app.globalData.dictData['servicePhoneNumber'] // 仅为示例，并非真实的电话号码
+      });
     } else {
       common.showModal('请授权登录。');
     }

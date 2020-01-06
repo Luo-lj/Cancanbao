@@ -37,7 +37,6 @@ Page({
       app.globalData.goodsData = this.getData(res[1]);
       app.globalData.goodsArr = res[1]; // 所有商品列表
       app.globalData.recommendData = res[2]; // 推荐商品列表
-      app.globalData.jsonList = res[4]; // 推荐商品列表
       console.log('Promise.all ===>>>', res);
       console.log('所有商品列表', app.globalData.goodsData);
       this.setData({

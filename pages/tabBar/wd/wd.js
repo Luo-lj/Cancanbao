@@ -85,7 +85,7 @@ Page({
 
   /** 收藏 **/
   goShoucan() {
-    if (this.data.userInfo.nickName) {
+    if (this.data.userInfo.base.nick || this.data.userInfo.base.nickName) {
       wx.navigateTo({
         url: '../../list/list',
       });
@@ -103,7 +103,7 @@ Page({
 
   /** 到店咨询 **/
   goLocation() {
-    if (this.data.userInfo.nickName) {
+    if (this.data.userInfo.base.nick || this.data.userInfo.base.nickName) {
       wx.navigateTo({
         url: '../../location/location',
       });
@@ -114,7 +114,7 @@ Page({
 
   /** 联系客服 **/
   contact() {
-    if (this.data.userInfo.nickName) {
+    if (this.data.userInfo.base.nick || this.data.userInfo.base.nickName) {
       wx.makePhoneCall({
         phoneNumber: app.globalData.dictData['servicePhoneNumber'] // 仅为示例，并非真实的电话号码
       });

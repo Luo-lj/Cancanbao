@@ -7,7 +7,7 @@
     <view class="userinfo-warp">
       <view class="userinfo-honor">
         <view class="item">
-          <view>0</view>
+          <view>{{userInfo.ext.follow.length}}</view>
           <view>关注</view>
         </view>
         <view class="item">
@@ -25,7 +25,7 @@
       </view>
     </view>
   </view>
-  <view class="personal-profile">{{userInfo.ext.profile || '填写个人简介让大家更好地认识你，点击这里添加+'}}</view>
+  <view class="personal-profile" bindtap="goUserInfo">{{userInfo.ext.profile || '填写个人简介让大家更好地认识你，点击这里添加+'}}</view>
 
 
   <view>

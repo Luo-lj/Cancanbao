@@ -18,7 +18,7 @@
   <l-tab tab="发现" key="2">
 
     <l-list title="">
-      <l-cell wx:for="{{epicureData}}" wx:key="{{item.epicureId}}">
+      <l-cell wx:for="{{jsonList}}" wx:key="{{item.epicureId}}">
         <view slot="prepend" class="prepend-warp">
           <view class="user-image">
             <image mode="aspectFill" src="{{item.userImg}}"></image>
@@ -28,7 +28,9 @@
             <view class="tips">作品 {{item.works}} 粉丝 {{item.Fans}}</view>
           </view>
         </view>
-        <view slot="append" class="append" data-item="{{item}}" bindtap="followTap">关注</view>
+        <view slot="append" class="append {{item.isFollow?'follow':''}}" data-item="{{item}}" bindtap="followTap">
+          关注
+        </view>
       </l-cell>
     </l-list>
 

@@ -15,20 +15,32 @@ Page({
     activeKey: '1',
     articleData: [], // 文章列表
     lookData: [],
-    epicureData: [], // 美食家数据
+    jsonList: [], // 美食家数据
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(app.globalData.jsonList);
+    console.log("===>>>关注的数据", app.globalData.userInfo.ext.follow)
+    console.log("===>>>关注的数据", app.globalData.jsonList['10001'])
+
+    let follow = app.globalData.userInfo.ext.follow;
+    let jsonList = app.globalData.jsonList['10001'];
+    if (app.globalData.userInfo.ext.follow.length) {
+      for (let item of follow) {
+        for (let jsonItem of jsonList) {
+          if (item.epicureId == jsonItem.epicureId){}
+          jsonItem.isFollow = item.epicureId == jsonItem.epicureId ? true : false;
+        }
+      }
+    }
+
     newsList().then(res => {
-      console.log('获取文章列表', res);
       this.setData({
         articleData: res,
         lookData: app.globalData.goodsArr,
-        epicureData: app.globalData.jsonList['10001'],
+        jsonList: app.globalData.jsonList['10001'],
       });
       Event.dispatch('g-tabs-resetStyle');
     });
@@ -42,26 +54,39 @@ Page({
   },
 
   // 关注
-  followTap(e){
+  followTap(e) {
     console.log("===>>>", e)
-    if (app.globalData.userInfo.base.nick){
-      app.globalData.userInfo.ext.follow.push(e.currentTarget.dataset.item);
+    if (app.globalData.userInfo.base.nick) {
+      const item = e.currentTarget.dataset.item;
       let obj = {
         avatarUrl: app.globalData.userInfo.base.avatarUrl, // 头像图片地址
         city: app.globalData.userInfo.base.city, // 所在城市
         nick: app.globalData.userInfo.base.nick, // 昵称
         province: app.globalData.userInfo.base.province, // 所在省份,
-        extJsonStr: JSON.stringify(app.globalData.userInfo.ext), // 扩展数据
         token: app.globalData.userInfo.token,
       };
+      let index = this.data.jsonList.findIndex(i => i.epicureId == item.epicureId);//当前点击的下标
+      if (item.isFollow) {
+        this.data.jsonList[index].isFollow = false;
+
+        let followIndex = app.globalData.userInfo.ext.follow.findIndex(i => i.epicureId == item.epicureId);
+        app.globalData.userInfo.ext.follow.splice(followIndex, 1);
+        obj.extJsonStr = JSON.stringify(app.globalData.userInfo.ext); // 扩展数据
+      } else {
+        this.data.jsonList[index].isFollow = true;
+        app.globalData.userInfo.ext.follow.push(item);
+        obj.extJsonStr = JSON.stringify(app.globalData.userInfo.ext); // 扩展数据
+      }
       userModify(obj).then(res => {
         this.setData({
-          userInfo: app.globalData.userInfo
+          userInfo: app.globalData.userInfo,
+          jsonList: this.data.jsonList,
         });
       });
-    }else{
-      common.showModal('您没有授权登录，请先登录。', '温馨提示', '授权登录','取消').then(res => {
-        if(res){
+
+    } else {
+      common.showModal('您没有授权登录，请先登录。', '温馨提示', '授权登录', '取消').then(res => {
+        if (res) {
           console.log("授权登录逻辑")
           wx.switchTab({
             url: '../wd/wd'

@@ -5,6 +5,7 @@ const {
   goods,
   getValues,
   getJsonList,
+  userDetail,
 } = require('../../../utils/apiData.js');
 const {
   login
@@ -46,7 +47,6 @@ Page({
     });
   },
 
-
   getData(data) {
     const Codemap = new Map();
     for (let item of data) {
@@ -85,7 +85,9 @@ Page({
    */
   onShow: function() {
     if (!app.globalData.userInfo.token) {
-      login();
+      login().then(() => {
+        this.getUserDetail();
+      });
     } else {
       checkToken({
         token: app.globalData.userInfo.token
@@ -93,10 +95,27 @@ Page({
         console.log('检测登录token是否有效', res);
         console.log('判断==》》', res && res.code == 2000);
         if (res && res.code == 2000) {
-          login();
+          login().then(() => {
+            this.getUserDetail();
+          });
         }
       });
     }
+  },
+
+  //获取用户详细信息
+  getUserDetail() {
+    userDetail({
+      token: app.globalData.userInfo.token
+    }).then(res => {
+      console.log('获取用户信息', res, app.globalData.userInfo);
+      app.globalData.userInfo.ext = Object.assign(app.globalData.userInfo.ext, res.ext);
+      app.globalData.userInfo.base = Object.assign(app.globalData.userInfo.base, res.base);
+      this.setData({
+        userInfo: app.globalData.userInfo,
+      });
+      console.log("app.globalData.userInfo===>>>", app.globalData.userInfo)
+    });
   },
 
   // 转发

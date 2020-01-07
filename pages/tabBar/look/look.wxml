@@ -28,7 +28,7 @@
             <view class="tips">作品 {{item.works}} 粉丝 {{item.Fans}}</view>
           </view>
         </view>
-        <view slot="append" class="append">关注</view>
+        <view slot="append" class="append" data-item="{{item}}" bindtap="followTap">关注</view>
       </l-cell>
     </l-list>
 

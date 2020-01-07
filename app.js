@@ -9,26 +9,27 @@ App({
       openid: "",
       token: "",
       ext: { //订单扩展属性信息,JSON格式
-        profile: '', //扩展数据
+        profile: '', //个人简介
+        follow:[],//关注的数据
       },
       base: { //用户信息
-        "avatarUrl": "", //头像图片地址
-        "city": "Guangzhou", //所在城市
-        "dateAdd": "2019-12-17 19:39:18", //
-        "dateLogin": "2020-01-06 20:51:47",
-        "id": 1175237,
-        "ipAdd": "223.74.68.180",
-        "ipLogin": "223.74.68.0",
-        "isIdcardCheck": false,
-        "isSeller": false,
-        "levelRenew": false,
-        "nick": "", //昵称
-        "province": "", //所在省份
-        "source": 0,
-        "sourceStr": "",
-        "status": 0,
-        "statusStr": "",
-        "username": "" //备注
+        avatarUrl: "", //头像图片地址
+        city: "", //所在城市
+        dateAdd: "", //
+        dateLogin: "",
+        id: '',
+        ipAdd: "",
+        ipLogin: "",
+        isIdcardCheck: false,
+        isSeller: false,
+        levelRenew: false,
+        nick: "", //昵称
+        province: "", //所在省份
+        source: 0,
+        sourceStr: "",
+        status: 0,
+        statusStr: "",
+        username: "" //备注
       }
     },
     dictData: null, // 字典数据

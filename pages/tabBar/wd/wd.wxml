@@ -20,7 +20,7 @@
         </view>
       </view>
       <view>
-        <button class="userinfo-btn" bindtap="goUserInfo" wx:if="{{userInfo.base.nick}}">编辑资料</button>
+        <button class="userinfo-btn" bindtap="goUserInfo" wx:if="{{userInfo.base.nick || userInfo.base.nickName}}">编辑资料</button>
         <button open-type="getUserInfo" class="userinfo-btn" bindgetuserinfo="onGotUserInfo" wx:else>授权登录</button>
       </view>
     </view>

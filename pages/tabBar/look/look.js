@@ -1,9 +1,11 @@
 // pages/tabBar/look/look.js
 const app = getApp();
 const {
-  newsList
+  newsList,
+  userModify
 } = require('../../../utils/apiData.js');
 const Event = require('../../../components/utils/events.js');
+const common = require('../../../utils/common.js');
 Page({
 
   /**
@@ -37,6 +39,36 @@ Page({
     this.setData({
       activeKey: e.detail.value.key
     });
+  },
+
+  // 关注
+  followTap(e){
+    console.log("===>>>", e)
+    if (app.globalData.userInfo.base.nick){
+      app.globalData.userInfo.ext.follow.push(e.currentTarget.dataset.item);
+      let obj = {
+        avatarUrl: app.globalData.userInfo.base.avatarUrl, // 头像图片地址
+        city: app.globalData.userInfo.base.city, // 所在城市
+        nick: app.globalData.userInfo.base.nick, // 昵称
+        province: app.globalData.userInfo.base.province, // 所在省份,
+        extJsonStr: JSON.stringify(app.globalData.userInfo.ext), // 扩展数据
+        token: app.globalData.userInfo.token,
+      };
+      userModify(obj).then(res => {
+        this.setData({
+          userInfo: app.globalData.userInfo
+        });
+      });
+    }else{
+      common.showModal('您没有授权登录，请先登录。', '温馨提示', '授权登录','取消').then(res => {
+        if(res){
+          console.log("授权登录逻辑")
+          wx.switchTab({
+            url: '../wd/wd'
+          })
+        }
+      })
+    }
   },
 
   // 去文章详情

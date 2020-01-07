@@ -28,11 +28,12 @@ Page({
       token: app.globalData.userInfo.token
     }).then(res => {
       console.log('获取用户信息', res, app.globalData.userInfo);
-      app.globalData.userInfo.ext = res.ext;
-      app.globalData.userInfo.base = res.base;
+      app.globalData.userInfo.ext = Object.assign(app.globalData.userInfo.ext,res.ext);
+      app.globalData.userInfo.base = Object.assign(app.globalData.userInfo.base, res.base);
       this.setData({
         userInfo: app.globalData.userInfo,
       });
+      console.log("app.globalData.userInfo===>>>", app.globalData.userInfo)
     });
   },
 
@@ -54,38 +55,17 @@ Page({
     this.setData({
       userInfo: app.globalData.userInfo,
     });
-
-    // setJson({
-    //   content: JSON.stringify({
-    //     title: '测试数据',
-    //     content: '测试内容'
-    //   }),
-    //   id: '',
-    //   refId: 8888,
-    //   type: '测试1',
-    // }).then(res => {
-    //   console.log("设置成功", res)
-    // })
   },
 
   onGotUserInfo: function(e) {
     if (e.detail.errMsg == 'getUserInfo:ok') {
       const userInfo = e.detail.userInfo;
-      app.globalData.userInfo = Object.assign(app.globalData.userInfo, userInfo);
+      app.globalData.userInfo.base = Object.assign(app.globalData.userInfo.base, userInfo);
       let obj = {
         avatarUrl: userInfo.avatarUrl, // 头像图片地址
         city: userInfo.city, // 所在城市
         nick: userInfo.nickName, // 昵称
         province: userInfo.province, // 所在省份,
-        extJsonStr: JSON.stringify({
-          aa: {
-            a: '111',
-            b: '222'
-          },
-          bb: {
-            aaa: '111'
-          },
-        }), // 扩展数据
         token: app.globalData.userInfo.token,
       };
       userModify(obj).then(res => {

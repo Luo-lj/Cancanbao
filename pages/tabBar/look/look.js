@@ -22,20 +22,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log("===>>>关注的数据", app.globalData.userInfo.ext.follow)
-    console.log("===>>>关注的数据", app.globalData.jsonList['10001'])
-
-    let follow = app.globalData.userInfo.ext.follow;
-    let jsonList = app.globalData.jsonList['10001'];
-    if (app.globalData.userInfo.ext.follow.length) {
-      for (let item of follow) {
-        for (let jsonItem of jsonList) {
-          if (item.epicureId == jsonItem.epicureId){}
-          jsonItem.isFollow = item.epicureId == jsonItem.epicureId ? true : false;
-        }
-      }
-    }
-
     newsList().then(res => {
       this.setData({
         articleData: res,
@@ -43,6 +29,31 @@ Page({
         jsonList: app.globalData.jsonList['10001'],
       });
       Event.dispatch('g-tabs-resetStyle');
+    });
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
+    console.log("===>>>关注的数据", app.globalData.userInfo.ext.follow)
+    console.log("===>>>美食家数据", app.globalData.jsonList['10001'])
+
+    let follow = app.globalData.userInfo.ext.follow;
+    let jsonList = app.globalData.jsonList['10001'];
+    for (let jsonItem of jsonList) {
+      if (follow.length) {
+        for (let item of follow) {
+          if (item.epicureId == jsonItem.epicureId && !jsonItem.isFollow) {
+            jsonItem.isFollow = true;
+          }
+        }
+      } else {
+        jsonItem.isFollow = false;
+      }
+    }
+    this.setData({
+      jsonList
     });
   },
 
@@ -55,7 +66,6 @@ Page({
 
   // 关注
   followTap(e) {
-    console.log("===>>>", e)
     if (app.globalData.userInfo.base.nick) {
       const item = e.currentTarget.dataset.item;
       let obj = {
@@ -65,7 +75,7 @@ Page({
         province: app.globalData.userInfo.base.province, // 所在省份,
         token: app.globalData.userInfo.token,
       };
-      let index = this.data.jsonList.findIndex(i => i.epicureId == item.epicureId);//当前点击的下标
+      let index = this.data.jsonList.findIndex(i => i.epicureId == item.epicureId); //当前点击的下标
       if (item.isFollow) {
         this.data.jsonList[index].isFollow = false;
 
@@ -94,6 +104,14 @@ Page({
         }
       })
     }
+  },
+
+  //去美食家主页
+  goEpicure(e) {
+    const item = e.currentTarget.dataset.item;
+    wx.navigateTo({
+      url: `../../epicure/epicure?epicureId=${item.epicureId}`,
+    })
   },
 
   // 去文章详情

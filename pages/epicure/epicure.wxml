@@ -1,0 +1,20 @@
+<!--pages/epicure/epicure.wxml-->
+<view>
+  <view class="userinfo-warp">
+    <image class="userinfo-img" mode="aspectFill" src="{{epicureData.userImg}}"></image>
+    <view>{{epicureData.userName}}</view>
+    <view class="personal-profile">{{epicureData.profile}}</view>
+    <view class="btn {{epicureData.isFollow?'follow':''}}" bindtap="followTap">关注</view>
+  </view>
+
+  <l-list title="作品">
+    <view class="waterfall">
+      <view wx:for="{{lookData}}" wx:key="{{item.id}}" class="item" data-id="{{item.id}}" bindtap="goDetail">
+        <view class="item-content">
+          <image src="{{item.pic}}" mode="widthFix"></image>
+          <view class="item-name">{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+  </l-list>
+</view>

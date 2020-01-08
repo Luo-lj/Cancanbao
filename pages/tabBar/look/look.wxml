@@ -3,7 +3,7 @@
   <l-tab tab="关注" key="1">
     <!-- 新闻列表 -->
     <view class="da-news" bindtap="tonewsDetail">
-      <view class="da-news-top" hover-class="clicking" wx:for="{{articleData}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="goNewsDetail">
+      <view class="da-news-top" hover-class="clicking" wx:for="{{articleData}}" wx:key="index" data-id="{{item.id}}" bindtap="goNewsDetail">
         <image mode="aspectFill" src="{{item.descript}}"></image>
         <view class="news-top-content">
           <view class='da-sub-title'>{{item.title}}</view>
@@ -19,7 +19,7 @@
 
     <l-list title="">
       <l-cell wx:for="{{jsonList}}" wx:key="{{item.epicureId}}">
-        <view slot="prepend" class="prepend-warp">
+        <view slot="prepend" class="prepend-warp" data-item="{{item}}" bindtap="goEpicure">
           <view class="user-image">
             <image mode="aspectFill" src="{{item.userImg}}"></image>
           </view>

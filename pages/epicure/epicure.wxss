@@ -1,0 +1,56 @@
+/* pages/epicure/epicure.wxss */
+
+.userinfo-warp {
+  text-align: center;
+}
+
+.userinfo-img {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+.personal-profile {
+  padding: 0 20px;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.btn {
+  width: 160rpx;
+  height: 48rpx;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 20rpx;
+  background: #ff2742;
+  margin: 10rpx auto 0;
+}
+
+.follow{
+  background: #eee;
+}
+
+.waterfall {
+  column-count: 2;
+  column-gap: 0;
+  padding: 20rpx;
+}
+
+.item {
+  box-sizing: border-box;
+  break-inside: avoid;
+  padding: 20rpx;
+}
+
+.item-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item-content image {
+  width: 100%;
+  height: auto;
+}

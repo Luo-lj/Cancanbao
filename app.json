@@ -9,7 +9,8 @@
     "pages/detail/detail",
     "pages/newsDetail/newsDetail",
     "pages/userinfo/userinfo",
-    "pages/joke/joke"
+    "pages/joke/joke",
+    "pages/epicure/epicure"
   ],
   "window": {
     "backgroundTextStyle": "light",

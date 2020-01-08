@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "l-tab": "/components/l-tab/index",
+    "l-tabs": "/components/l-tabs/index",
+    "l-list": "/components/l-list/index",
+    "l-cell": "/components/l-cell/index"
+  }
+}

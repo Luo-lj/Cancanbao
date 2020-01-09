@@ -103,7 +103,7 @@ Page({
     }
   },
 
-  //获取用户详细信息
+  // 获取用户详细信息
   getUserDetail() {
     userDetail({
       token: app.globalData.userInfo.token
@@ -114,7 +114,7 @@ Page({
       this.setData({
         userInfo: app.globalData.userInfo,
       });
-      console.log("app.globalData.userInfo===>>>", app.globalData.userInfo)
+      console.log('app.globalData.userInfo===>>>', app.globalData.userInfo);
     });
   },
 

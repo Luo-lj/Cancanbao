@@ -11,7 +11,7 @@ Page({
    */
   data: {
     epicureData: {},
-    lookData:[],
+    lookData: [],
   },
 
   /**
@@ -23,7 +23,7 @@ Page({
     this.setData({
       epicureData,
       lookData: app.globalData.goodsArr,
-    })
+    });
 
   },
 
@@ -56,13 +56,21 @@ Page({
     } else {
       common.showModal('您没有授权登录，请先登录。', '温馨提示', '授权登录', '取消').then(res => {
         if (res) {
-          console.log("授权登录逻辑")
+          console.log('授权登录逻辑');
           wx.switchTab({
             url: '../tabBar/wd/wd'
-          })
+          });
         }
-      })
+      });
     }
   },
 
-})
+  // 去详情页
+  goDetail(e) {
+    wx.navigateTo({
+      url: `../detail/detail?id=${e.currentTarget.dataset.id}`,
+    });
+  },
+
+
+});

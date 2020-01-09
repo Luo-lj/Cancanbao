@@ -11,10 +11,10 @@ Page({
    */
   data: {
     formData: {
-      nick: '', //昵称
-      province: '', //省份
-      city: '', //城市
-      profile: '', //个人简介
+      nick: '', // 昵称
+      province: '', // 省份
+      city: '', // 城市
+      profile: '', // 个人简介
     },
     rules: [{
       name: 'nick',
@@ -50,40 +50,40 @@ Page({
     userDetail({
       token: app.globalData.userInfo.token
     }).then(res => {
-      console.log("获取用户信息", res)
+      console.log('获取用户信息', res);
       this.setData({
         formData: {
-          nick: res.base.nick, //昵称
-          province: res.base.province, //省份
-          city: res.base.city, //城市
-          profile: res.ext.profile, //个人简介
+          nick: res.base.nick, // 昵称
+          province: res.base.province, // 省份
+          city: res.base.city, // 城市
+          profile: res.ext.profile, // 个人简介
         }
-      })
-    })
+      });
+    });
   },
 
   formInputChange(e) {
     const {
       id
-    } = e.currentTarget.dataset
+    } = e.currentTarget.dataset;
     this.setData({
       [`formData.${id}`]: e.detail.value
-    })
+    });
   },
 
   submitForm() {
     this.selectComponent('#form').validate((valid, errors) => {
-      console.log('valid', valid, errors)
+      console.log('valid', valid, errors);
       if (!valid) {
-        const firstError = Object.keys(errors)
+        const firstError = Object.keys(errors);
         if (firstError.length) {
           this.setData({
             error: errors[firstError[0]].message
-          })
+          });
 
         }
       } else {
-        console.log(app.globalData.userInfo.ext)
+        console.log(app.globalData.userInfo.ext);
         app.globalData.userInfo.ext.profile = this.data.formData.profile;
         let obj = {
           token: app.globalData.userInfo.token,
@@ -92,13 +92,13 @@ Page({
           province: this.data.formData.province,
           city: this.data.formData.city,
           extJsonStr: JSON.stringify(app.globalData.userInfo.ext)
-        }
+        };
         userModify(obj).then(res => {
-          console.log("修改用户成功", res)
+          console.log('修改用户成功', res);
           wx.navigateBack();
-        })
+        });
       }
-    })
+    });
   }
 
 });

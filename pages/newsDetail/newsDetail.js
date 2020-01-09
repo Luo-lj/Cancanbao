@@ -2,7 +2,7 @@
 const {
   newsDetail,
 } = require('../../utils/apiData.js');
-const app = getApp();
+// const app = getApp();
 Page({
 
   /**

@@ -36,8 +36,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    console.log("===>>>关注的数据", app.globalData.userInfo.ext.follow)
-    console.log("===>>>美食家数据", app.globalData.jsonList['10001'])
+    console.log('===>>>关注的数据', app.globalData.userInfo.ext.follow);
+    console.log('===>>>美食家数据', app.globalData.jsonList['10001']);
 
     let follow = app.globalData.userInfo.ext.follow;
     let jsonList = app.globalData.jsonList['10001'];
@@ -75,7 +75,7 @@ Page({
         province: app.globalData.userInfo.base.province, // 所在省份,
         token: app.globalData.userInfo.token,
       };
-      let index = this.data.jsonList.findIndex(i => i.epicureId == item.epicureId); //当前点击的下标
+      let index = this.data.jsonList.findIndex(i => i.epicureId == item.epicureId); // 当前点击的下标
       if (item.isFollow) {
         this.data.jsonList[index].isFollow = false;
 
@@ -97,21 +97,21 @@ Page({
     } else {
       common.showModal('您没有授权登录，请先登录。', '温馨提示', '授权登录', '取消').then(res => {
         if (res) {
-          console.log("授权登录逻辑")
+          console.log('授权登录逻辑');
           wx.switchTab({
             url: '../wd/wd'
-          })
+          });
         }
-      })
+      });
     }
   },
 
-  //去美食家主页
+  // 去美食家主页
   goEpicure(e) {
     const item = e.currentTarget.dataset.item;
     wx.navigateTo({
       url: `../../epicure/epicure?epicureId=${item.epicureId}`,
-    })
+    });
   },
 
   // 去文章详情

@@ -4,8 +4,8 @@ const {
   userModify,
   userDetail,
   checkToken,
-  setJson,
-  deleteJson
+  // setJson,
+  // deleteJson
 } = require('../../../utils/apiData.js');
 const {
   login
@@ -28,12 +28,12 @@ Page({
       token: app.globalData.userInfo.token
     }).then(res => {
       console.log('获取用户信息', res, app.globalData.userInfo);
-      app.globalData.userInfo.ext = Object.assign(app.globalData.userInfo.ext,res.ext);
+      app.globalData.userInfo.ext = Object.assign(app.globalData.userInfo.ext, res.ext);
       app.globalData.userInfo.base = Object.assign(app.globalData.userInfo.base, res.base);
       this.setData({
         userInfo: app.globalData.userInfo,
       });
-      console.log("app.globalData.userInfo===>>>", app.globalData.userInfo)
+      console.log('app.globalData.userInfo===>>>', app.globalData.userInfo);
     });
   },
 
@@ -76,11 +76,11 @@ Page({
     }
   },
 
-  //编辑资料
+  // 编辑资料
   goUserInfo() {
     wx.navigateTo({
       url: '../../userinfo/userinfo',
-    })
+    });
   },
 
   /** 收藏 **/

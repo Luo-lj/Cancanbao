@@ -52,23 +52,8 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
-			"list": [
-				{
-					"id": -1,
-					"name": "地图",
-					"pathName": "pages/location/location",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 1,
-					"name": "pages/joke/joke",
-					"pathName": "pages/userinfo/userinfo",
-					"query": "id=243110",
-					"scene": null
-				}
-			]
+			"current": -1,
+			"list": []
 		}
 	}
 }

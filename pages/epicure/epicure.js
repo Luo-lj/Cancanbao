@@ -29,7 +29,7 @@ Page({
 
   // 关注
   followTap(e) {
-    if (app.globalData.userInfo.base.nick) {
+    if (app.globalData.userInfo.base.nick || app.globalData.userInfo.base.nickName) {
       let obj = {
         avatarUrl: app.globalData.userInfo.base.avatarUrl, // 头像图片地址
         city: app.globalData.userInfo.base.city, // 所在城市
@@ -56,7 +56,6 @@ Page({
     } else {
       common.showModal('您没有授权登录，请先登录。', '温馨提示', '授权登录', '取消').then(res => {
         if (res) {
-          console.log('授权登录逻辑');
           wx.switchTab({
             url: '../tabBar/wd/wd'
           });

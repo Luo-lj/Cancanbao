@@ -69,8 +69,12 @@ Page({
   },
 
   // 设计师
-  designerTap() {
-    common.showModal('计划于2020年1月份上线，给你带来不便，深感抱歉。');
+  designerTap(e) {
+    console.log(e)
+    wx.navigateTo({
+      url: `../../epicure/epicure?epicureId=${e.currentTarget.dataset.id}`
+    });
+    // common.showModal('计划于2020年1月份上线，给你带来不便，深感抱歉。');
   },
 
   // 去详情页

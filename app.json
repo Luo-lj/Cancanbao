@@ -35,7 +35,7 @@
         "selectedIconPath": "/images/tabBar/fenlei-open.png"
       },
       {
-        "text": "看图",
+        "text": "发现",
         "pagePath": "pages/tabBar/look/look",
         "iconPath": "/images/tabBar/look.png",
         "selectedIconPath": "/images/tabBar/look-open.png"

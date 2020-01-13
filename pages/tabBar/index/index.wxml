@@ -1,15 +1,13 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="swiper-warp">
-    <swiper indicator-dots indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" autoplay>
-      <swiper-item wx:for="{{bannerData}}" wx:key="{{item.businessId}}">
-        <image src="{{item.picUrl}}" id="{{item.businessId}}" bindtap="swiperItem" class="slide-image" />
-      </swiper-item>
-    </swiper>
-  </view>
+  <swiper class="swiper-warp" indicator-dots indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" autoplay>
+    <swiper-item wx:for="{{bannerData}}" wx:key="{{item.businessId}}">
+      <image src="{{item.picUrl}}" id="{{item.businessId}}" bindtap="swiperItem" class="slide-image" />
+    </swiper-item>
+  </swiper>
 
   <view class="most-box">
-    <view class="most-content most-l" bindtap="designerTap">
+    <view class="most-content most-l" bindtap="designerTap" data-id="001">
       <view class="most-warp">
         <view class="most-text">最受欢迎</view>
         <view class="most-text">人气厨师</view>
@@ -18,7 +16,7 @@
       <image class="most-img" src="/images/shejishi/huanyin-1.jpg"></image>
     </view>
     <view class="most-content most-r">
-      <view class="most-active" bindtap="designerTap">
+      <view class="most-active" bindtap="designerTap" data-id="002">
         <view class="most-warp-r">
           <view class="most-text">最受欢迎</view>
           <view class="most-text">人气厨师</view>
@@ -26,7 +24,7 @@
         </view>
         <image class="most-img" src="/images/shejishi/huanyin-2.jpg"></image>
       </view>
-      <view class="most-talent" bindtap="designerTap">
+      <view class="most-talent" bindtap="designerTap" data-id="003">
         <view class="most-warp-r">
           <view class="most-text">最受欢迎</view>
           <view class="most-text">人气厨师</view>

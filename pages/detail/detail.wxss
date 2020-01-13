@@ -1,7 +1,3 @@
-.swiper-container, swiper, .slide-image {
-  width: 100%;
-  height: 550rpx;
-}
 
 .product-warp {
   font-size: 40rpx;

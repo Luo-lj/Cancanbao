@@ -1,6 +1,6 @@
 <!--pages/tabBar/gwc/gwc.wxml-->
 <l-tabs activeKey="{{ activeKey }}" data-key="activeKey" bind:change="tabChange">
-  <l-tab tab="关注" key="1">
+  <l-tab tab="发现" key="1">
     <!-- 新闻列表 -->
     <view class="da-news" bindtap="tonewsDetail">
       <view class="da-news-top" hover-class="clicking" wx:for="{{articleData}}" wx:key="index" data-id="{{item.id}}" bindtap="goNewsDetail">
@@ -15,7 +15,7 @@
       </view>
     </view>
   </l-tab>
-  <l-tab tab="发现" key="2">
+  <l-tab tab="关注" key="2">
 
     <l-list title="">
       <l-cell wx:for="{{jsonList}}" wx:key="{{item.epicureId}}">

@@ -1,13 +1,12 @@
 <!--pages/detail/detail.wxml-->
 <view class="container" wx:if="{{isOk}}">
   <view style="height: {{windowHeight - 50}}px;overflow: auto;">
-    <view class="swiper-container">
-      <swiper indicator-dots indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" autoplay>
-        <swiper-item wx:for="{{detailData.pics}}" wx:key="{{item.pic}}">
-          <image src="{{item.pic}}" id="{{item.id}}" bindtap="swiperItem" class="slide-image" />
-        </swiper-item>
-      </swiper>
-    </view>
+    <swiper class="swiper-warp" indicator-dots indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" autoplay>
+      <swiper-item wx:for="{{detailData.pics}}" wx:key="{{item.pic}}">
+        <image src="{{item.pic}}" id="{{item.id}}" class="slide-image" />
+      </swiper-item>
+    </swiper>
+
     <view class="product-warp">{{detailData.basicInfo.name}}</view>
     <view class="cailiao">
       <l-list title="用料" wx:if="{{detailData.extJson}}" component-class="{{!isShow?'component-class':''}}">

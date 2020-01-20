@@ -18,7 +18,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    const jsonList = app.globalData.jsonList['10001'];
+    const jsonList = app.globalData.pageInfo['jsonList'];
     const epicureData = jsonList.find(item => item.epicureId == options.epicureId);
     this.setData({
       epicureData,

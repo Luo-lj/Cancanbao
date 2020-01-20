@@ -31,26 +31,3 @@
 .follow{
   background: #eee;
 }
-
-.waterfall {
-  column-count: 2;
-  column-gap: 0;
-  padding: 20rpx;
-}
-
-.item {
-  box-sizing: border-box;
-  break-inside: avoid;
-  padding: 20rpx;
-}
-
-.item-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.item-content image {
-  width: 100%;
-  height: auto;
-}

@@ -1,29 +1,5 @@
 /* pages/tabBar/gwc/gwc.wxss */
 
-.waterfall {
-  column-count: 2;
-  column-gap: 0;
-  padding: 10rpx;
-  background-color: #eee;
-}
-
-.item {
-  box-sizing: border-box;
-  break-inside: avoid;
-  padding: 10rpx;
-}
-
-.item-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.item-content image {
-  width: 100%;
-  height: auto;
-}
-
 .da-news {
   padding: 0 40rpx;
 }
@@ -60,14 +36,6 @@
 .prepend-warp {
   display: flex;
   justify-content: flex-start;
-}
-
-.item-name {
-  font-size: 30rpx;
-  line-height: 80rpx;
-  text-align: center;
-  background-color: #fff;
-  border-radius: 0 0 10rpx 10rpx;
 }
 
 .user-image, .user-image image {

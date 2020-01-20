@@ -4,13 +4,13 @@ const {
   getBanner,
   goods,
   getValues,
-  getJsonList,
+  getPageInfo,
   userDetail,
 } = require('../../../utils/apiData.js');
 const {
   login
 } = require('../../../utils/login.js');
-const common = require('../../../utils/common.js');
+// const common = require('../../../utils/common.js');
 const app = getApp();
 Page({
 
@@ -25,7 +25,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     app.globalData.userInfo.token = '';
     this.initData();
   },
@@ -34,7 +34,7 @@ Page({
   initData() {
     Promise.all([getBanner(), goods(), goods({
       recommendStatus: 1
-    }), getValues(), getJsonList()]).then(res => {
+    }), getValues(), getPageInfo({ key: 'jsonList' }), getPageInfo({ key: 'aaa' })]).then(res => {
       app.globalData.goodsData = this.getData(res[1]);
       app.globalData.goodsArr = res[1]; // 所有商品列表
       app.globalData.recommendData = res[2]; // 推荐商品列表
@@ -70,11 +70,9 @@ Page({
 
   // 设计师
   designerTap(e) {
-    console.log(e)
     wx.navigateTo({
       url: `../../epicure/epicure?epicureId=${e.currentTarget.dataset.id}`
     });
-    // common.showModal('计划于2020年1月份上线，给你带来不便，深感抱歉。');
   },
 
   // 去详情页
@@ -87,7 +85,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
     if (!app.globalData.userInfo.token) {
       login().then(() => {
         this.getUserDetail();
@@ -123,7 +121,7 @@ Page({
   },
 
   // 转发
-  onShareAppMessage: function(res) {
+  onShareAppMessage: function (res) {
     return {
       title: app.globalData.dictData['companyName'],
       path: `/pages/tabBar/index/index`

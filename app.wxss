@@ -31,7 +31,40 @@ page {
   line-height: 40rpx;
 }
 
-.swiper-warp ,.slide-image{
+.swiper-warp, .slide-image {
   width: 100%;
   height: 550rpx;
+}
+
+.waterfall {
+  column-count: 2;
+  column-gap: 0;
+  padding: 10rpx;
+  background-color: #eee;
+}
+
+.item {
+  box-sizing: border-box;
+  break-inside: avoid;
+  padding: 10rpx;
+}
+
+.item-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item-content image {
+  width: 100%;
+  height: auto;
+  border-radius: 10rpx 10rpx 0 0;
+}
+
+.item-name {
+  font-size: 30rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 0 0 10rpx 10rpx;
 }

@@ -34,6 +34,7 @@ App({
     },
     dictData: null, // 字典数据
     jsonList: null, // 所有json数据
+    pageInfo: null, // 单页面数据
     goodsArr: null, // 所有商品列表 Array
     goodsData: null, // 所有商品列表 Map对象
     recommendData: null, // 推荐商品列表

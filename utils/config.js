@@ -10,7 +10,7 @@ const dictKeys = [ // 系统参数
   'servicePhoneNumber', //联系我们——手机号码
   'aboutUsTitle', // 关于我们——弹窗标题
   'aboutUsContent', //关于我们——弹窗内容
-]
+];
 
 module.exports = {
   apiUrl,

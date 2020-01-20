@@ -9,7 +9,7 @@
     <block wx:if="{{goodslist.length}}">
       <l-cell wx:for="{{goodslist}}" wx:key="index" label="{{item.name}}" desc="" data-id="{{item.id}}" bind:tap="getDetail">
         <view slot="prepend">
-          <image class="cube" src="{{item.pic}}"></image>
+          <image class="cube" src="{{item.pic}}" mode="aspectFill"></image>
         </view>
       </l-cell>
     </block>

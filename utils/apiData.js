@@ -149,6 +149,24 @@ function getValues() {
 }
 
 /**
+ * 获取单页面数据
+ * 获取定义的json数据
+ * 'jsonList'：美食家数据
+ */
+function getPageInfo(obj) {
+  return new Promise(resolev => {
+    ljRequest.request('/cms/page/info/v2', obj, 'GET').then(res => {
+      let contentData = JSON.parse(res.info.content);
+      app.globalData.pageInfo = Object.assign({}, app.globalData.pageInfo, {
+        [obj.key]: contentData
+      });
+      console.log("app.globalData.pageInfo======", app.globalData.pageInfo)
+      resolev(true)
+    })
+  })
+}
+
+/**
  * Json数据列表
  */
 function getJsonList(obj) {
@@ -162,7 +180,7 @@ function getJsonList(obj) {
       console.log("获取所有的Json列表===>>>", res, list)
       resolev(true)
     })
-  }) 
+  })
 }
 
 /**
@@ -199,7 +217,8 @@ module.exports = {
   newsDetail,
   distance,
   getValues,
+  getPageInfo,
   getJsonList,
-  setJson, 
+  setJson,
   deleteJson,
 }

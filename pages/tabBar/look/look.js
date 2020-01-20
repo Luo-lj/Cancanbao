@@ -26,7 +26,7 @@ Page({
       this.setData({
         articleData: res,
         lookData: app.globalData.goodsArr,
-        jsonList: app.globalData.jsonList['10001'],
+        jsonList: app.globalData.pageInfo['jsonList'],
       });
       Event.dispatch('g-tabs-resetStyle');
     });
@@ -37,10 +37,10 @@ Page({
    */
   onShow: function() {
     console.log('===>>>关注的数据', app.globalData.userInfo.ext.follow);
-    console.log('===>>>美食家数据', app.globalData.jsonList['10001']);
+    console.log('===>>>美食家数据', app.globalData.pageInfo, app.globalData.pageInfo['jsonList']);
 
     let follow = app.globalData.userInfo.ext.follow;
-    let jsonList = app.globalData.jsonList['10001'];
+    let jsonList = app.globalData.pageInfo['jsonList'];
     for (let jsonItem of jsonList) {
       if (follow.length) {
         for (let item of follow) {

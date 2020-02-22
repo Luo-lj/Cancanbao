@@ -1,14 +1,5 @@
-# 餐餐饱食谱
-主色调 ：ff2742；
+# 餐餐饱食谱
+纯属个人联系小程序
 
-# 项目结构
-├── components                                       // webpack配置文件
-├── images                                      // 项目打包路径// 项目截图
-├── pages                                         // 源码目录
-│   ├── components                              // 组件
-│   │   ├── common  
-|   |   └──
-├── styles                                      // 静态文件，比如一些图片，json数据等
-├── utils                                        // 
-|   ├── e2e                                     // e2e测试
-|   └── unit                                    // 单元测试
+# 线上二维码
+![Image text](https://dcdn.it120.cc/2020/02/22/03fb5df7-72b5-438d-abad-9af5615950db.jpg)

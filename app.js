@@ -7,7 +7,7 @@ App({
     userInfo: {
       uid: '',
       openid: '',
-      token: '',
+      token: '', //用户登录token
       ext: { // 订单扩展属性信息,JSON格式
         profile: '', // 个人简介
         follow: [], // 关注的数据

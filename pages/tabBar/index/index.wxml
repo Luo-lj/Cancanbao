@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container" style="filter: gray">
   <swiper class="swiper-warp" indicator-dots indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" autoplay>
     <swiper-item wx:for="{{bannerData}}" wx:key="{{item.businessId}}">
       <image src="{{item.picUrl}}" id="{{item.businessId}}" bindtap="swiperItem" class="slide-image" />

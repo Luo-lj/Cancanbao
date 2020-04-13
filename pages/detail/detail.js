@@ -13,7 +13,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isOk: false,
+    isOk: false, // 是否加载完毕
     isShow: false, // 是否展示全部材料
     windowHeight: null,
     id: null,

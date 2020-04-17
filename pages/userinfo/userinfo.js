@@ -71,6 +71,7 @@ Page({
     });
   },
 
+	//表单提交
   submitForm() {
     this.selectComponent('#form').validate((valid, errors) => {
       console.log('valid', valid, errors);
